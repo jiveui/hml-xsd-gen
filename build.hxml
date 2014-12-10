@@ -1,0 +1,4 @@
+-neko bin/xsd-gen.n
+-lib hxargs
+-cp src
+-main Generator
