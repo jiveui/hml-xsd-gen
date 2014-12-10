@@ -44,6 +44,9 @@ class SchemaType {
         var prefix: String = if (namespace != getNameSpace()) getNameSpace().getShemaNamespaceName()+":" else "";
         return prefix + getName().substr(getName().lastIndexOf(".") + 1) + "SchemaType";
     }
+    public function getValueTypeName(namespace:SchemaNamespace): String {
+        return getComplexTypeName(namespace) + "Value";
+    }
 
     public function getElementName(namespace:SchemaNamespace): String {
         return getName().substr(getName().lastIndexOf(".") + 1);
@@ -79,7 +82,7 @@ class SchemaType {
                         var t = SchemaType.types.get(child.firstElement().get("path"));
                         if (null != t && t.getName() != "String") {
                             propertyNamespace = t.getNameSpace();
-                            t.getComplexTypeName(namespace);
+                            t.getValueTypeName(namespace);
                         } else "xs:string";
                     } else {
                         "xs:string";
@@ -115,6 +118,14 @@ class SchemaType {
         } else {
             fillProperties(buf, namespace);
         }
+        buf.add('</xs:complexType>\n');
+        return buf.toString();
+    }
+
+    public function toValueTypeXmlString(namespace:SchemaNamespace): String {
+        var buf: StringBuf = new StringBuf();
+        buf.add('<xs:complexType name="${getValueTypeName(getNameSpace())}">\n');
+        buf.add('<xs:element name="${getElementName(getNameSpace())}" type="${getComplexTypeName(getNameSpace())}"/>');
         buf.add('</xs:complexType>\n');
         return buf.toString();
     }

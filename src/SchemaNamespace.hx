@@ -52,6 +52,11 @@ class SchemaNamespace {
         buf.add(">\n");
 
         for(t in types) {
+            buf.add(t.toValueTypeXmlString(this));
+            buf.add("\n");
+        }
+
+        for(t in types) {
             buf.add(t.toComplexTypeXmlString(this));
             buf.add("\n");
         }
