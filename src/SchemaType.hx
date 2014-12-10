@@ -11,6 +11,7 @@ class SchemaType {
     private var xml: Xml;
     private var base: SchemaType;
     private var baseSet: Bool;
+    private var implementers: StringMap<SchemaType> = new StringMap<SchemaType>();
 
     public function new(xml: Xml) {
         this.xml = xml;
@@ -35,6 +36,29 @@ class SchemaType {
         }
         return base;
     }
+
+    public function isInterface(): Bool {
+        return null != xml && xml.get("interface") == "1";
+    }
+
+    public function addImplementer(t: SchemaType) {
+        implementers.set(t.getName(), t);
+        if (getNameSpace() != t.getNameSpace()) {
+            getNameSpace().addDependence(t.getNameSpace());
+        }
+    }
+
+    public function processInterfaces() {
+        if (null != xml) {
+            for(iface in xml.elementsNamed("implements")) {
+                var t = types.get(iface.get("path"));
+                if (null != t) {
+                    t.addImplementer(this);
+                }
+            }
+        }
+    }
+
 
     public function getName(): String {
         return xml.get("path");
@@ -125,7 +149,15 @@ class SchemaType {
     public function toValueTypeXmlString(namespace:SchemaNamespace): String {
         var buf: StringBuf = new StringBuf();
         buf.add('<xs:complexType name="${getValueTypeName(getNameSpace())}">\n');
-        buf.add('<xs:element name="${getElementName(getNameSpace())}" type="${getComplexTypeName(getNameSpace())}"/>');
+        if (isInterface()) {
+            buf.add("<xs:choice>\n");
+            for (imp in implementers) {
+                buf.add('<xs:element name="${imp.getElementName(getNameSpace())}" type="${imp.getComplexTypeName(getNameSpace())}"/>\n');
+            }
+            buf.add("</xs:choice>\n");
+        } else {
+            buf.add('<xs:element name="${getElementName(getNameSpace())}" type="${getComplexTypeName(getNameSpace())}"/>');
+        }
         buf.add('</xs:complexType>\n');
         return buf.toString();
     }

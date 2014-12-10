@@ -38,6 +38,7 @@ class Generator {
         // Link to namespaces and to base classes
         for (c in SchemaType.types) {
             c.getNameSpace().addType(c);
+            c.processInterfaces();
         }
 
         for (ns in SchemaNamespace.namespaces) {
