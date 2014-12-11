@@ -48,17 +48,26 @@ class SchemaType {
         }
     }
 
-    public function processInterfaces() {
+    public function processBaseClass(extender: SchemaType = null) {
+        if (null == extender) extender = this;
+        if (null != getBase()) {
+            getBase().addImplementer(extender);
+            getBase().processBaseClass(extender);
+            getBase().processInterfaces(extender);
+        }
+    }
+
+    public function processInterfaces(implementer: SchemaType = null) {
         if (null != xml) {
+            if (null == implementer) implementer = this;
             for(iface in xml.elementsNamed("implements")) {
                 var t = types.get(iface.get("path"));
                 if (null != t) {
-                    t.addImplementer(this);
+                    t.addImplementer(implementer);
                 }
             }
         }
     }
-
 
     public function getName(): String {
         return xml.get("path");
@@ -73,7 +82,8 @@ class SchemaType {
     }
 
     public function getElementName(namespace:SchemaNamespace): String {
-        return getName().substr(getName().lastIndexOf(".") + 1);
+        var prefix: String = if (namespace != getNameSpace()) getNameSpace().getShemaNamespaceName()+":" else "";
+        return prefix + getName().substr(getName().lastIndexOf(".") + 1);
     }
 
     public function getProperties(namespace: SchemaNamespace): Array<SchemaTypeProperty> {
@@ -149,14 +159,17 @@ class SchemaType {
     public function toValueTypeXmlString(namespace:SchemaNamespace): String {
         var buf: StringBuf = new StringBuf();
         buf.add('<xs:complexType name="${getValueTypeName(getNameSpace())}">\n');
-        if (isInterface()) {
+        if (Lambda.count(implementers) > 0) {
             buf.add("<xs:choice>\n");
             for (imp in implementers) {
-                buf.add('<xs:element name="${imp.getElementName(getNameSpace())}" type="${imp.getComplexTypeName(getNameSpace())}"/>\n');
+                buf.add('<xs:element ref="${imp.getElementName(getNameSpace())}" />\n');
+            }
+            if (!isInterface()) {
+                buf.add('<xs:element ref="${getElementName(getNameSpace())}"/>');
             }
             buf.add("</xs:choice>\n");
         } else {
-            buf.add('<xs:element name="${getElementName(getNameSpace())}" type="${getComplexTypeName(getNameSpace())}"/>');
+            buf.add('<xs:element ref="${getElementName(getNameSpace())}"/>');
         }
         buf.add('</xs:complexType>\n');
         return buf.toString();

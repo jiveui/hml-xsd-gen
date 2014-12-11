@@ -39,6 +39,7 @@ class Generator {
         for (c in SchemaType.types) {
             c.getNameSpace().addType(c);
             c.processInterfaces();
+            c.processBaseClass();
         }
 
         for (ns in SchemaNamespace.namespaces) {
