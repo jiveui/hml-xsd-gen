@@ -3,6 +3,8 @@ hml-xsd-gen
 
 A tool to generate XSD files by the code structure XML compiled by Haxe with '-xml' option
 
+[Video demo](http://quick.as/6o5xur59)
+
 Generated XSD files can be used to support XML completition in your IDE:
 
 - IntelliJ IDEA: https://www.jetbrains.com/idea/features/xml_editor.html (How to install schemas - https://www.jetbrains.com/idea/help/referencing-dtd-or-schema.html)
