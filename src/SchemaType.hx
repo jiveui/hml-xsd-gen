@@ -1,5 +1,6 @@
 package ;
 
+import StringTools;
 import SchemaNamespace;
 import SchemaNamespace;
 import haxe.ds.StringMap;
@@ -146,10 +147,20 @@ class SchemaType {
         if (getBase() != null) {
             buf.add('<xs:complexContent>\n');
             buf.add('<xs:extension base="${getBase().getComplexTypeName(namespace)}">\n');
+            if (Generator.onlyExplicitChildren) {
+                for(ch in getExplicitChildren()) {
+                    buf.add('<xs:element ref="${ch.getElementName(getNameSpace())}" />\n');
+                }
+            }
             fillProperties(buf, namespace);
             buf.add('</xs:extension>\n');
             buf.add('</xs:complexContent>\n');
         } else {
+            if (Generator.onlyExplicitChildren) {
+                for(ch in getExplicitChildren()) {
+                    buf.add('<xs:element ref="${ch.getElementName(getNameSpace())}" />\n');
+                }
+            }
             fillProperties(buf, namespace);
         }
         buf.add('</xs:complexType>\n');
@@ -161,11 +172,8 @@ class SchemaType {
         buf.add('<xs:complexType name="${getValueTypeName(getNameSpace())}">\n');
         if (Lambda.count(implementers) > 0) {
             buf.add("<xs:choice>\n");
-            for (imp in implementers) {
+            for (imp in getImplementers()) {
                 buf.add('<xs:element ref="${imp.getElementName(getNameSpace())}" />\n');
-            }
-            if (!isInterface()) {
-                buf.add('<xs:element ref="${getElementName(getNameSpace())}"/>');
             }
             buf.add("</xs:choice>\n");
         } else {
@@ -177,5 +185,27 @@ class SchemaType {
 
     public function toElementXmlString(namespace:SchemaNamespace): String {
         return '<xs:element name="${getElementName(getNameSpace())}" type="${getComplexTypeName(getNameSpace())}"/>\n';
+    }
+
+    public function getImplementers(): Array<SchemaType> {
+        var result:Array<SchemaType> = [];
+        result = result.concat(Lambda.array(implementers));
+        if (!isInterface()) {
+            result.push(this);
+        }
+        return result;
+    }
+
+    public function getExplicitChildren(): Array<SchemaType> {
+        var result:Array<SchemaType> = [];
+        for (m in xml.elementsNamed("meta")) {
+            for (v in m.elements()) {
+                if (v.get("n") == ":children") {
+                    var typeName = StringTools.replace(v.firstElement().firstChild().nodeValue,'"',"");
+                    result = result.concat(types.get(typeName).getImplementers());
+                }
+            }
+        }
+        return result;
     }
 }

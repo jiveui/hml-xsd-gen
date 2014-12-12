@@ -1,0 +1,11 @@
+{
+  "name": "hml-xsd-gen",
+  "url": "https://github.com/ngrebenshikov/hml-xsd-gen",
+  "license": "MIT",
+  "tags": [ "hml", "xsd"],
+  "description": "A tool to generate XSD files by the code structure XML compiled by Haxe with '-xml' option",
+  "version": "0.0.1",
+  "releasenote": "Initial release",
+  "contributors": [ "grebenshikov.n" ],
+  "dependencies": {}
+}

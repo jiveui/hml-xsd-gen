@@ -4,20 +4,29 @@ import sys.io.File;
 import hxargs.Args;
 
 class Generator {
+
+    public static var onlyExplicitChildren(default, null): Bool;
+
     public static function main() {
         var config: Dynamic = {};
 
         var argHandler = Args.generate([
             @doc('Set the path to input XML file generated during haxe compilation with -xml parameter')
-            ["-xml", "--input-xml-path"] => function(path: String) { config.xmlPath = path; },
+            ["-xml", "--input-xml-path"] => function(filePath: String) { config.xmlPath = filePath; },
 
             @doc('Set the path to folder where output XSD files should be placed')
-            ["-xsd", "---output-xsd-folder"] => function(path: String) { config.xsdPath = path; },
-            _ => function(arg: String) { Sys.println("Unknown argument"); }
+            ["-xsd", "--output-xsd-folder"] => function(folderPath: String) { config.xsdPath = folderPath; },
+
+            @doc('Add only children explicitly set via a class meta @:children("full.class.name")')
+            ["-explicit", "--only-explicit-children"] => function() { onlyExplicitChildren = true; },
+
+            _ => function(arg: String) { /*Sys.println("Unknown argument");*/ }
         ]);
 
         var args = Sys.args();
-        if (args.length == 0) Sys.println(argHandler.getDoc());
+        if (args.length <= 1) {
+            Sys.println(argHandler.getDoc());
+        }
         else {
             argHandler.parse(args);
             new Generator().generate(config);
