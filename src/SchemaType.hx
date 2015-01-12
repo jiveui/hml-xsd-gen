@@ -130,11 +130,13 @@ class SchemaType {
         return result;
     }
 
-    private function fillProperties(buf: StringBuf, namespace: SchemaNamespace) {
+    private function fillPropertiesElements(buf: StringBuf, namespace: SchemaNamespace) {
         for (p in getProperties(namespace)) {
             buf.add('<xs:element name="${p.name}" type="${p.type}"/>\n');
         }
+    }
 
+    private function fillPropertiesAttributes(buf: StringBuf, namespace: SchemaNamespace) {
         for (p in getProperties(namespace)) {
             var type = if (StringTools.startsWith(p.type, "xs:")) p.type else "xs:string";
             buf.add('<xs:attribute name="${p.name}" type="${type}"/>\n');
@@ -147,21 +149,27 @@ class SchemaType {
         if (getBase() != null) {
             buf.add('<xs:complexContent>\n');
             buf.add('<xs:extension base="${getBase().getComplexTypeName(namespace)}">\n');
+            buf.add("<xs:sequence>\n");
             if (Generator.onlyExplicitChildren) {
                 for(ch in getExplicitChildren()) {
                     buf.add('<xs:element ref="${ch.getElementName(getNameSpace())}" />\n');
                 }
             }
-            fillProperties(buf, namespace);
+            fillPropertiesElements(buf, namespace);
+            buf.add("</xs:sequence>\n");
+            fillPropertiesAttributes(buf, namespace);
             buf.add('</xs:extension>\n');
             buf.add('</xs:complexContent>\n');
         } else {
+            buf.add("<xs:sequence>\n");
             if (Generator.onlyExplicitChildren) {
                 for(ch in getExplicitChildren()) {
                     buf.add('<xs:element ref="${ch.getElementName(getNameSpace())}" />\n');
                 }
             }
-            fillProperties(buf, namespace);
+            fillPropertiesElements(buf, namespace);
+            buf.add("</xs:sequence>\n");
+            fillPropertiesAttributes(buf, namespace);
         }
         buf.add('</xs:complexType>\n');
         return buf.toString();
@@ -177,7 +185,7 @@ class SchemaType {
             }
             buf.add("</xs:choice>\n");
         } else {
-            buf.add('<xs:element ref="${getElementName(getNameSpace())}"/>');
+            buf.add('<xs:sequence><xs:element ref="${getElementName(getNameSpace())}"/></xs:sequence>');
         }
         buf.add('</xs:complexType>\n');
         return buf.toString();
