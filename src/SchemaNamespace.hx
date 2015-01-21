@@ -45,11 +45,15 @@ class SchemaNamespace {
 
     public function toXmlString(): String {
         var buf: StringBuf = new StringBuf();
+        var tempbuf:String = "";
+
         buf.add('<xs:schema targetNamespace="${name}" xmlns="${name}" xmlns:xs="http://www.w3.org/2001/XMLSchema"\n');
         for(d in dependencies) {
             buf.add('xmlns:${d.getShemaNamespaceName()}="${d.name}"\n');
+            tempbuf+='<xs:import namespace="${d.name}" schemaLocation="${d.name}.xsd" />\n';
         }
         buf.add(">\n");
+        buf.add(tempbuf);
 
         for(t in types) {
             buf.add(t.toValueTypeXmlString(this));
