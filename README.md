@@ -23,3 +23,7 @@ haxelib run hml-xsd-gen
  - [-xsd | --output-xsd-folder] <folderPath>    : Set the path to folder where output XSD files should be placed
  - [-explicit | --only-explicit-children] : Add only children explicitly set via a class meta @:children("full.class.name")
 
+	Usage example:
+	--------------
+	haxelib run hml-xsd-gen -xml src/gen/codestructure.xml  -xsd src/stablex_xml_example/schemas
+
