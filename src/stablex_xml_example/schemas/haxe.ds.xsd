@@ -1,0 +1,34 @@
+<xs:schema targetNamespace="haxe.ds" xmlns="haxe.ds" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:flash-utils="flash.utils"
+xmlns:empty="empty"
+>
+<xs:import namespace="flash.utils" schemaLocation="flash.utils.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="StringMapSchemaTypeValue">
+<xs:sequence><xs:element ref="StringMap"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="ObjectMapSchemaTypeValue">
+<xs:sequence><xs:element ref="ObjectMap"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="StringMapSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ObjectMapSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-utils:DictionarySchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="StringMap" type="StringMapSchemaType"/>
+<xs:element name="ObjectMap" type="ObjectMapSchemaType"/>
+</xs:schema>

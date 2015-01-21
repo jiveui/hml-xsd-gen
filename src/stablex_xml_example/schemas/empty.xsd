@@ -1,0 +1,387 @@
+<xs:schema targetNamespace="empty" xmlns="empty" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:motion-actuators="motion.actuators"
+xmlns:flash-ui="flash.ui"
+xmlns:ru-stablex-ui-skins="ru.stablex.ui.skins"
+xmlns:flash="flash"
+xmlns:flash-display3D-textures="flash.display3D.textures"
+xmlns:ru-stablex-ui-events="ru.stablex.ui.events"
+xmlns:ru-stablex-ui="ru.stablex.ui"
+xmlns:flash-errors="flash.errors"
+xmlns:ru-stablex="ru.stablex"
+xmlns:flash-display3D="flash.display3D"
+xmlns:flash-system="flash.system"
+xmlns:motion="motion"
+xmlns:flash-media="flash.media"
+xmlns:ru-stablex-ui-widgets="ru.stablex.ui.widgets"
+xmlns:flash-text="flash.text"
+xmlns:motion-_Actuate="motion._Actuate"
+xmlns:flash-utils="flash.utils"
+xmlns:flash-net="flash.net"
+xmlns:flash-external="flash.external"
+xmlns:haxe-ds-_ObjectMap="haxe.ds._ObjectMap"
+xmlns:flash-filters="flash.filters"
+xmlns:haxe-ds="haxe.ds"
+xmlns:flash-_Boot="flash._Boot"
+xmlns:flash-geom="flash.geom"
+xmlns:flash-display="flash.display"
+xmlns:motion-easing="motion.easing"
+xmlns:ru-stablex-ui-layouts="ru.stablex.ui.layouts"
+xmlns:haxe="haxe"
+xmlns:flash-xml="flash.xml"
+xmlns:flash-events="flash.events"
+xmlns:flash-accessibility="flash.accessibility"
+>
+<xs:import namespace="motion.actuators" schemaLocation="motion.actuators.xsd" />
+<xs:import namespace="flash.ui" schemaLocation="flash.ui.xsd" />
+<xs:import namespace="ru.stablex.ui.skins" schemaLocation="ru.stablex.ui.skins.xsd" />
+<xs:import namespace="flash" schemaLocation="flash.xsd" />
+<xs:import namespace="flash.display3D.textures" schemaLocation="flash.display3D.textures.xsd" />
+<xs:import namespace="ru.stablex.ui.events" schemaLocation="ru.stablex.ui.events.xsd" />
+<xs:import namespace="ru.stablex.ui" schemaLocation="ru.stablex.ui.xsd" />
+<xs:import namespace="flash.errors" schemaLocation="flash.errors.xsd" />
+<xs:import namespace="ru.stablex" schemaLocation="ru.stablex.xsd" />
+<xs:import namespace="flash.display3D" schemaLocation="flash.display3D.xsd" />
+<xs:import namespace="flash.system" schemaLocation="flash.system.xsd" />
+<xs:import namespace="motion" schemaLocation="motion.xsd" />
+<xs:import namespace="flash.media" schemaLocation="flash.media.xsd" />
+<xs:import namespace="ru.stablex.ui.widgets" schemaLocation="ru.stablex.ui.widgets.xsd" />
+<xs:import namespace="flash.text" schemaLocation="flash.text.xsd" />
+<xs:import namespace="motion._Actuate" schemaLocation="motion._Actuate.xsd" />
+<xs:import namespace="flash.utils" schemaLocation="flash.utils.xsd" />
+<xs:import namespace="flash.net" schemaLocation="flash.net.xsd" />
+<xs:import namespace="flash.external" schemaLocation="flash.external.xsd" />
+<xs:import namespace="haxe.ds._ObjectMap" schemaLocation="haxe.ds._ObjectMap.xsd" />
+<xs:import namespace="flash.filters" schemaLocation="flash.filters.xsd" />
+<xs:import namespace="haxe.ds" schemaLocation="haxe.ds.xsd" />
+<xs:import namespace="flash._Boot" schemaLocation="flash._Boot.xsd" />
+<xs:import namespace="flash.geom" schemaLocation="flash.geom.xsd" />
+<xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
+<xs:import namespace="motion.easing" schemaLocation="motion.easing.xsd" />
+<xs:import namespace="ru.stablex.ui.layouts" schemaLocation="ru.stablex.ui.layouts.xsd" />
+<xs:import namespace="haxe" schemaLocation="haxe.xsd" />
+<xs:import namespace="flash.xml" schemaLocation="flash.xml.xsd" />
+<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
+<xs:import namespace="flash.accessibility" schemaLocation="flash.accessibility.xsd" />
+<xs:complexType name="ArraySchemaTypeValue">
+<xs:sequence><xs:element ref="Array"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="ArrayAccessSchemaTypeValue">
+<xs:sequence><xs:element ref="ArrayAccess"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="StringSchemaTypeValue">
+<xs:sequence><xs:element ref="String"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="StdSchemaTypeValue">
+<xs:sequence><xs:element ref="Std"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="TypeSchemaTypeValue">
+<xs:sequence><xs:element ref="Type"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="IMapSchemaTypeValue">
+<xs:choice>
+<xs:element ref="haxe-ds:StringMap" />
+<xs:element ref="haxe-ds:ObjectMap" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ListSchemaTypeValue">
+<xs:sequence><xs:element ref="List"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="RootObjectTypeSchemaTypeValue">
+<xs:choice>
+<xs:element ref="motion-actuators:IGenericActuator" />
+<xs:element ref="motion-easing:CubicEaseIn" />
+<xs:element ref="Array" />
+<xs:element ref="ru-stablex-ui-skins:Skin" />
+<xs:element ref="ru-stablex:TweenSprite" />
+<xs:element ref="motion-easing:LinearEaseNone" />
+<xs:element ref="flash-display3D-textures:TextureBase" />
+<xs:element ref="motion-easing:BounceEaseOut" />
+<xs:element ref="flash:Lib" />
+<xs:element ref="flash-display:Graphics" />
+<xs:element ref="motion-easing:SineEaseInOut" />
+<xs:element ref="ArrayAccess" />
+<xs:element ref="flash-utils:IDataOutput" />
+<xs:element ref="motion-easing:QuartEaseInOut" />
+<xs:element ref="ru-stablex-ui-events:WidgetEvent" />
+<xs:element ref="flash-geom:Transform" />
+<xs:element ref="motion-actuators:MotionPathActuator" />
+<xs:element ref="motion-actuators:PropertyPathDetails" />
+<xs:element ref="haxe:EnumValueTools" />
+<xs:element ref="motion:MotionPath" />
+<xs:element ref="motion-easing:BackEaseOut" />
+<xs:element ref="motion-easing:Quad" />
+<xs:element ref="motion-_Actuate:TransformOptions" />
+<xs:element ref="motion-easing:Cubic" />
+<xs:element ref="flash-display3D:IndexBuffer3D" />
+<xs:element ref="motion-easing:ExpoEaseInOut" />
+<xs:element ref="flash-utils:IDataOutput2" />
+<xs:element ref="motion-actuators:SimpleActuator" />
+<xs:element ref="motion-easing:QuintEaseIn" />
+<xs:element ref="ru-stablex-ui-layouts:Layout" />
+<xs:element ref="flash-display:Stage3D" />
+<xs:element ref="flash-geom:Vector3D" />
+<xs:element ref="motion-_Actuate:TweenTimer" />
+<xs:element ref="motion:BezierPath" />
+<xs:element ref="String" />
+<xs:element ref="motion-easing:QuadEaseIn" />
+<xs:element ref="flash-media:Microphone" />
+<xs:element ref="flash-media:VideoStreamSettings" />
+<xs:element ref="haxe:EnumTools" />
+<xs:element ref="motion-easing:Back" />
+<xs:element ref="flash-media:AVSource" />
+<xs:element ref="flash-net:NetConnection" />
+<xs:element ref="flash-display:DisplayObject" />
+<xs:element ref="Std" />
+<xs:element ref="flash-external:ExternalInterface" />
+<xs:element ref="flash-display:NativeMenu" />
+<xs:element ref="haxe-ds:StringMap" />
+<xs:element ref="motion-easing:QuintEaseOut" />
+<xs:element ref="motion-easing:Sine" />
+<xs:element ref="flash:Vector" />
+<xs:element ref="motion-easing:QuartEaseIn" />
+<xs:element ref="motion-easing:ElasticEaseOut" />
+<xs:element ref="flash-display3D-textures:RectangleTexture" />
+<xs:element ref="motion-easing:Bounce" />
+<xs:element ref="ru-stablex-ui:UIBuilder" />
+<xs:element ref="flash-net:NetStreamMulticastInfo" />
+<xs:element ref="flash-ui:ContextMenuClipboardItems" />
+<xs:element ref="flash-display:InteractiveObject" />
+<xs:element ref="flash-media:Camera" />
+<xs:element ref="flash-display:MovieClip" />
+<xs:element ref="flash-display:BitmapData" />
+<xs:element ref="flash-geom:Matrix" />
+<xs:element ref="motion-easing:Expo" />
+<xs:element ref="motion-actuators:PropertyDetails" />
+<xs:element ref="Type" />
+<xs:element ref="flash-utils:ByteArray" />
+<xs:element ref="flash-xml:XML" />
+<xs:element ref="motion:LinearPath" />
+<xs:element ref="flash-ui:ContextMenuBuiltInItems" />
+<xs:element ref="motion-easing:SineEaseIn" />
+<xs:element ref="flash-geom:Point" />
+<xs:element ref="motion-easing:QuartEaseOut" />
+<xs:element ref="flash-media:MicrophoneEnhancedOptions" />
+<xs:element ref="flash-net:NetStream" />
+<xs:element ref="ru-stablex-ui-widgets:Text" />
+<xs:element ref="flash-net:URLRequest" />
+<xs:element ref="motion-easing:ElasticEaseIn" />
+<xs:element ref="flash-display3D:Program3D" />
+<xs:element ref="motion-easing:Linear" />
+<xs:element ref="motion-easing:Quart" />
+<xs:element ref="flash-media:StageVideo" />
+<xs:element ref="motion-easing:BackEaseInOut" />
+<xs:element ref="motion-easing:BounceEaseInOut" />
+<xs:element ref="motion-easing:BounceEaseIn" />
+<xs:element ref="motion-easing:Elastic" />
+<xs:element ref="ru-stablex-ui-widgets:Floating" />
+<xs:element ref="flash-utils:IDataInput2" />
+<xs:element ref="flash-display3D:Context3D" />
+<xs:element ref="motion:RotationPath" />
+<xs:element ref="motion-easing:ElasticEaseInOut" />
+<xs:element ref="ru-stablex:Err" />
+<xs:element ref="ru-stablex-ui-skins:Rect" />
+<xs:element ref="flash-text:TextLineMetrics" />
+<xs:element ref="flash-display:IGraphicsData" />
+<xs:element ref="flash-filters:BitmapFilter" />
+<xs:element ref="motion-actuators:GenericActuator" />
+<xs:element ref="flash-media:SoundTransform" />
+<xs:element ref="motion-easing:CubicEaseOut" />
+<xs:element ref="flash-text:TextField" />
+<xs:element ref="motion:IComponentPath" />
+<xs:element ref="ru-stablex-ui-skins:Paint" />
+<xs:element ref="motion-easing:QuadEaseOut" />
+<xs:element ref="flash-display:Sprite" />
+<xs:element ref="flash-geom:ColorTransform" />
+<xs:element ref="motion-actuators:FilterActuator" />
+<xs:element ref="flash-text:TextSnapshot" />
+<xs:element ref="flash-accessibility:AccessibilityProperties" />
+<xs:element ref="flash-text:TextFormat" />
+<xs:element ref="flash-events:EventDispatcher" />
+<xs:element ref="flash-media:AVResult" />
+<xs:element ref="ru-stablex-ui-widgets:Tip" />
+<xs:element ref="IMap" />
+<xs:element ref="flash-text:StyleSheet" />
+<xs:element ref="flash-net:URLRequestHeader" />
+<xs:element ref="flash-display:FrameLabel" />
+<xs:element ref="flash-geom:Matrix3D" />
+<xs:element ref="flash-display:IBitmapDrawable" />
+<xs:element ref="flash-display:Stage" />
+<xs:element ref="flash-display3D-textures:CubeTexture" />
+<xs:element ref="flash-utils:Dictionary" />
+<xs:element ref="flash-display3D-textures:Texture" />
+<xs:element ref="flash-net:NetStreamPlayOptions" />
+<xs:element ref="flash-display:Shader" />
+<xs:element ref="motion:Actuate" />
+<xs:element ref="motion-easing:SineEaseOut" />
+<xs:element ref="flash-display:Loader" />
+<xs:element ref="motion-easing:BackEaseIn" />
+<xs:element ref="flash-display3D:VertexBuffer3D" />
+<xs:element ref="motion:ComponentPath" />
+<xs:element ref="haxe-ds-_ObjectMap:NativeValueIterator" />
+<xs:element ref="motion-easing:IEasing" />
+<xs:element ref="ru-stablex-ui-widgets:Widget" />
+<xs:element ref="flash-ui:ContextMenu" />
+<xs:element ref="motion-easing:CubicEaseInOut" />
+<xs:element ref="motion-easing:ExpoEaseOut" />
+<xs:element ref="flash-display:Scene" />
+<xs:element ref="motion-_Actuate:EffectsOptions" />
+<xs:element ref="flash-geom:PerspectiveProjection" />
+<xs:element ref="flash-utils:Namespace" />
+<xs:element ref="flash-xml:XMLList" />
+<xs:element ref="flash-events:UncaughtErrorEvents" />
+<xs:element ref="List" />
+<xs:element ref="flash-accessibility:AccessibilityImplementation" />
+<xs:element ref="haxe-ds:ObjectMap" />
+<xs:element ref="Reflect" />
+<xs:element ref="flash-_Boot:RealBoot" />
+<xs:element ref="flash-events:Event" />
+<xs:element ref="Math" />
+<xs:element ref="flash-net:NetStreamInfo" />
+<xs:element ref="motion-easing:ExpoEaseIn" />
+<xs:element ref="motion-easing:Quint" />
+<xs:element ref="flash-events:IEventDispatcher" />
+<xs:element ref="Main" />
+<xs:element ref="flash-net:Responder" />
+<xs:element ref="motion-actuators:MethodActuator" />
+<xs:element ref="flash-display:LoaderInfo" />
+<xs:element ref="flash-geom:Rectangle" />
+<xs:element ref="motion-easing:QuadEaseInOut" />
+<xs:element ref="flash:Boot" />
+<xs:element ref="flash-media:AVCaptionStyle" />
+<xs:element ref="flash-media:AVPlayState" />
+<xs:element ref="flash-media:AVStream" />
+<xs:element ref="motion-actuators:TransformActuator" />
+<xs:element ref="flash-utils:IDataInput" />
+<xs:element ref="flash-errors:Error" />
+<xs:element ref="flash-display:ShaderData" />
+<xs:element ref="flash-display:DisplayObjectContainer" />
+<xs:element ref="ru-stablex-ui-widgets:Box" />
+<xs:element ref="flash-system:ApplicationDomain" />
+<xs:element ref="flash-system:LoaderContext" />
+<xs:element ref="flash-system:SecurityDomain" />
+<xs:element ref="motion-easing:QuintEaseInOut" />
+<xs:element ref="flash-events:MouseEvent" />
+<xs:element ref="RootObjectType" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ReflectSchemaTypeValue">
+<xs:sequence><xs:element ref="Reflect"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="MathSchemaTypeValue">
+<xs:sequence><xs:element ref="Math"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="MainSchemaTypeValue">
+<xs:sequence><xs:element ref="Main"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="ArraySchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="length" type="xs:int"/>
+</xs:sequence>
+<xs:attribute name="length" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ArrayAccessSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StringSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="length" type="xs:int"/>
+</xs:sequence>
+<xs:attribute name="length" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StdSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TypeSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IMapSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ListSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="length" type="xs:int"/>
+</xs:sequence>
+<xs:attribute name="length" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RootObjectTypeSchemaType"><xs:any minOccurs="0"/><xs:attribute name="id" type="xs:int"/>
+</xs:complexType>
+<xs:complexType name="ReflectSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MathSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MainSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-display:SpriteSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Array" type="ArraySchemaType"/>
+<xs:element name="ArrayAccess" type="ArrayAccessSchemaType"/>
+<xs:element name="String" type="StringSchemaType"/>
+<xs:element name="Std" type="StdSchemaType"/>
+<xs:element name="Type" type="TypeSchemaType"/>
+<xs:element name="IMap" type="IMapSchemaType"/>
+<xs:element name="List" type="ListSchemaType"/>
+<xs:element name="Reflect" type="ReflectSchemaType"/>
+<xs:element name="Math" type="MathSchemaType"/>
+<xs:element name="Main" type="MainSchemaType"/>
+</xs:schema>

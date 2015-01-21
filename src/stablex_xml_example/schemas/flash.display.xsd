@@ -1,0 +1,581 @@
+<xs:schema targetNamespace="flash.display" xmlns="flash.display" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:flash-geom="flash.geom"
+xmlns:ru-stablex-ui-widgets="ru.stablex.ui.widgets"
+xmlns:flash-text="flash.text"
+xmlns:flash-ui="flash.ui"
+xmlns:ru-stablex="ru.stablex"
+xmlns:flash-utils="flash.utils"
+xmlns:flash-display3D="flash.display3D"
+xmlns:flash="flash"
+xmlns:empty="empty"
+xmlns:flash-events="flash.events"
+xmlns:flash-system="flash.system"
+xmlns:flash-accessibility="flash.accessibility"
+xmlns:flash-media="flash.media"
+xmlns:flash-_Boot="flash._Boot"
+>
+<xs:import namespace="flash.geom" schemaLocation="flash.geom.xsd" />
+<xs:import namespace="ru.stablex.ui.widgets" schemaLocation="ru.stablex.ui.widgets.xsd" />
+<xs:import namespace="flash.text" schemaLocation="flash.text.xsd" />
+<xs:import namespace="flash.ui" schemaLocation="flash.ui.xsd" />
+<xs:import namespace="ru.stablex" schemaLocation="ru.stablex.xsd" />
+<xs:import namespace="flash.utils" schemaLocation="flash.utils.xsd" />
+<xs:import namespace="flash.display3D" schemaLocation="flash.display3D.xsd" />
+<xs:import namespace="flash" schemaLocation="flash.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
+<xs:import namespace="flash.system" schemaLocation="flash.system.xsd" />
+<xs:import namespace="flash.accessibility" schemaLocation="flash.accessibility.xsd" />
+<xs:import namespace="flash.media" schemaLocation="flash.media.xsd" />
+<xs:import namespace="flash._Boot" schemaLocation="flash._Boot.xsd" />
+<xs:complexType name="GraphicsSchemaTypeValue">
+<xs:sequence><xs:element ref="Graphics"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="Stage3DSchemaTypeValue">
+<xs:sequence><xs:element ref="Stage3D"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="DisplayObjectSchemaTypeValue">
+<xs:choice>
+<xs:element ref="Loader" />
+<xs:element ref="flash-_Boot:RealBoot" />
+<xs:element ref="empty:Main" />
+<xs:element ref="ru-stablex:TweenSprite" />
+<xs:element ref="ru-stablex-ui-widgets:Text" />
+<xs:element ref="ru-stablex-ui-widgets:Widget" />
+<xs:element ref="flash-text:TextField" />
+<xs:element ref="Stage" />
+<xs:element ref="flash:Boot" />
+<xs:element ref="InteractiveObject" />
+<xs:element ref="MovieClip" />
+<xs:element ref="Sprite" />
+<xs:element ref="DisplayObjectContainer" />
+<xs:element ref="ru-stablex-ui-widgets:Box" />
+<xs:element ref="ru-stablex-ui-widgets:Floating" />
+<xs:element ref="ru-stablex-ui-widgets:Tip" />
+<xs:element ref="DisplayObject" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="NativeMenuSchemaTypeValue">
+<xs:choice>
+<xs:element ref="flash-ui:ContextMenu" />
+<xs:element ref="NativeMenu" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="InteractiveObjectSchemaTypeValue">
+<xs:choice>
+<xs:element ref="Loader" />
+<xs:element ref="flash-_Boot:RealBoot" />
+<xs:element ref="empty:Main" />
+<xs:element ref="ru-stablex:TweenSprite" />
+<xs:element ref="ru-stablex-ui-widgets:Text" />
+<xs:element ref="ru-stablex-ui-widgets:Widget" />
+<xs:element ref="flash-text:TextField" />
+<xs:element ref="Stage" />
+<xs:element ref="flash:Boot" />
+<xs:element ref="MovieClip" />
+<xs:element ref="Sprite" />
+<xs:element ref="DisplayObjectContainer" />
+<xs:element ref="ru-stablex-ui-widgets:Box" />
+<xs:element ref="ru-stablex-ui-widgets:Floating" />
+<xs:element ref="ru-stablex-ui-widgets:Tip" />
+<xs:element ref="InteractiveObject" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="MovieClipSchemaTypeValue">
+<xs:choice>
+<xs:element ref="flash-_Boot:RealBoot" />
+<xs:element ref="flash:Boot" />
+<xs:element ref="MovieClip" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BitmapDataSchemaTypeValue">
+<xs:sequence><xs:element ref="BitmapData"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="IGraphicsDataSchemaTypeValue">
+<xs:sequence><xs:element ref="IGraphicsData"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="SpriteSchemaTypeValue">
+<xs:choice>
+<xs:element ref="flash-_Boot:RealBoot" />
+<xs:element ref="MovieClip" />
+<xs:element ref="empty:Main" />
+<xs:element ref="ru-stablex:TweenSprite" />
+<xs:element ref="ru-stablex-ui-widgets:Text" />
+<xs:element ref="ru-stablex-ui-widgets:Widget" />
+<xs:element ref="ru-stablex-ui-widgets:Box" />
+<xs:element ref="ru-stablex-ui-widgets:Floating" />
+<xs:element ref="flash:Boot" />
+<xs:element ref="ru-stablex-ui-widgets:Tip" />
+<xs:element ref="Sprite" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="FrameLabelSchemaTypeValue">
+<xs:sequence><xs:element ref="FrameLabel"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="IBitmapDrawableSchemaTypeValue">
+<xs:choice>
+<xs:element ref="DisplayObject" />
+<xs:element ref="Loader" />
+<xs:element ref="flash-_Boot:RealBoot" />
+<xs:element ref="empty:Main" />
+<xs:element ref="ru-stablex:TweenSprite" />
+<xs:element ref="ru-stablex-ui-widgets:Text" />
+<xs:element ref="ru-stablex-ui-widgets:Widget" />
+<xs:element ref="flash-text:TextField" />
+<xs:element ref="Stage" />
+<xs:element ref="flash:Boot" />
+<xs:element ref="InteractiveObject" />
+<xs:element ref="MovieClip" />
+<xs:element ref="BitmapData" />
+<xs:element ref="Sprite" />
+<xs:element ref="DisplayObjectContainer" />
+<xs:element ref="ru-stablex-ui-widgets:Box" />
+<xs:element ref="ru-stablex-ui-widgets:Floating" />
+<xs:element ref="ru-stablex-ui-widgets:Tip" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="StageSchemaTypeValue">
+<xs:sequence><xs:element ref="Stage"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="ShaderSchemaTypeValue">
+<xs:sequence><xs:element ref="Shader"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="LoaderSchemaTypeValue">
+<xs:sequence><xs:element ref="Loader"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="SceneSchemaTypeValue">
+<xs:sequence><xs:element ref="Scene"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="LoaderInfoSchemaTypeValue">
+<xs:sequence><xs:element ref="LoaderInfo"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="ShaderDataSchemaTypeValue">
+<xs:sequence><xs:element ref="ShaderData"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="DisplayObjectContainerSchemaTypeValue">
+<xs:choice>
+<xs:element ref="Loader" />
+<xs:element ref="flash-_Boot:RealBoot" />
+<xs:element ref="MovieClip" />
+<xs:element ref="empty:Main" />
+<xs:element ref="ru-stablex:TweenSprite" />
+<xs:element ref="ru-stablex-ui-widgets:Text" />
+<xs:element ref="Sprite" />
+<xs:element ref="ru-stablex-ui-widgets:Widget" />
+<xs:element ref="ru-stablex-ui-widgets:Box" />
+<xs:element ref="ru-stablex-ui-widgets:Floating" />
+<xs:element ref="Stage" />
+<xs:element ref="flash:Boot" />
+<xs:element ref="ru-stablex-ui-widgets:Tip" />
+<xs:element ref="DisplayObjectContainer" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="GraphicsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Stage3DSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
+<xs:element name="context3D" type="flash-display3D:Context3DSchemaTypeValue"/>
+<xs:element name="visible" type="xs:boolean"/>
+<xs:element name="x" type="xs:double"/>
+<xs:element name="y" type="xs:double"/>
+</xs:sequence>
+<xs:attribute name="context3D" type="xs:string"/>
+<xs:attribute name="visible" type="xs:boolean"/>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DisplayObjectSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
+<xs:element name="accessibilityProperties" type="flash-accessibility:AccessibilityPropertiesSchemaTypeValue"/>
+<xs:element name="alpha" type="xs:double"/>
+<xs:element name="blendMode" type="xs:string"/>
+<xs:element name="blendShader" type="ShaderSchemaTypeValue"/>
+<xs:element name="cacheAsBitmap" type="xs:boolean"/>
+<xs:element name="filters" type="empty:ArraySchemaTypeValue"/>
+<xs:element name="height" type="xs:double"/>
+<xs:element name="loaderInfo" type="LoaderInfoSchemaTypeValue"/>
+<xs:element name="mask" type="DisplayObjectSchemaTypeValue"/>
+<xs:element name="mouseX" type="xs:double"/>
+<xs:element name="mouseY" type="xs:double"/>
+<xs:element name="name" type="xs:string"/>
+<xs:element name="opaqueBackground" type="xs:string"/>
+<xs:element name="parent" type="DisplayObjectContainerSchemaTypeValue"/>
+<xs:element name="root" type="DisplayObjectSchemaTypeValue"/>
+<xs:element name="rotation" type="xs:double"/>
+<xs:element name="rotationX" type="xs:double"/>
+<xs:element name="rotationY" type="xs:double"/>
+<xs:element name="rotationZ" type="xs:double"/>
+<xs:element name="scale9Grid" type="flash-geom:RectangleSchemaTypeValue"/>
+<xs:element name="scaleX" type="xs:double"/>
+<xs:element name="scaleY" type="xs:double"/>
+<xs:element name="scaleZ" type="xs:double"/>
+<xs:element name="scrollRect" type="flash-geom:RectangleSchemaTypeValue"/>
+<xs:element name="stage" type="StageSchemaTypeValue"/>
+<xs:element name="transform" type="flash-geom:TransformSchemaTypeValue"/>
+<xs:element name="visible" type="xs:boolean"/>
+<xs:element name="width" type="xs:double"/>
+<xs:element name="x" type="xs:double"/>
+<xs:element name="y" type="xs:double"/>
+<xs:element name="z" type="xs:double"/>
+</xs:sequence>
+<xs:attribute name="accessibilityProperties" type="xs:string"/>
+<xs:attribute name="alpha" type="xs:double"/>
+<xs:attribute name="blendMode" type="xs:string"/>
+<xs:attribute name="blendShader" type="xs:string"/>
+<xs:attribute name="cacheAsBitmap" type="xs:boolean"/>
+<xs:attribute name="filters" type="xs:string"/>
+<xs:attribute name="height" type="xs:double"/>
+<xs:attribute name="loaderInfo" type="xs:string"/>
+<xs:attribute name="mask" type="xs:string"/>
+<xs:attribute name="mouseX" type="xs:double"/>
+<xs:attribute name="mouseY" type="xs:double"/>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="opaqueBackground" type="xs:string"/>
+<xs:attribute name="parent" type="xs:string"/>
+<xs:attribute name="root" type="xs:string"/>
+<xs:attribute name="rotation" type="xs:double"/>
+<xs:attribute name="rotationX" type="xs:double"/>
+<xs:attribute name="rotationY" type="xs:double"/>
+<xs:attribute name="rotationZ" type="xs:double"/>
+<xs:attribute name="scale9Grid" type="xs:string"/>
+<xs:attribute name="scaleX" type="xs:double"/>
+<xs:attribute name="scaleY" type="xs:double"/>
+<xs:attribute name="scaleZ" type="xs:double"/>
+<xs:attribute name="scrollRect" type="xs:string"/>
+<xs:attribute name="stage" type="xs:string"/>
+<xs:attribute name="transform" type="xs:string"/>
+<xs:attribute name="visible" type="xs:boolean"/>
+<xs:attribute name="width" type="xs:double"/>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
+<xs:attribute name="z" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="NativeMenuSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="InteractiveObjectSchemaType">
+<xs:complexContent>
+<xs:extension base="DisplayObjectSchemaType">
+<xs:sequence>
+<xs:element name="accessibilityImplementation" type="flash-accessibility:AccessibilityImplementationSchemaTypeValue"/>
+<xs:element name="contextMenu" type="flash-ui:ContextMenuSchemaTypeValue"/>
+<xs:element name="doubleClickEnabled" type="xs:boolean"/>
+<xs:element name="focusRect" type="xs:string"/>
+<xs:element name="mouseEnabled" type="xs:boolean"/>
+<xs:element name="tabEnabled" type="xs:boolean"/>
+<xs:element name="tabIndex" type="xs:int"/>
+</xs:sequence>
+<xs:attribute name="accessibilityImplementation" type="xs:string"/>
+<xs:attribute name="contextMenu" type="xs:string"/>
+<xs:attribute name="doubleClickEnabled" type="xs:boolean"/>
+<xs:attribute name="focusRect" type="xs:string"/>
+<xs:attribute name="mouseEnabled" type="xs:boolean"/>
+<xs:attribute name="tabEnabled" type="xs:boolean"/>
+<xs:attribute name="tabIndex" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MovieClipSchemaType">
+<xs:complexContent>
+<xs:extension base="SpriteSchemaType">
+<xs:sequence>
+<xs:element name="currentFrame" type="xs:int"/>
+<xs:element name="currentFrameLabel" type="xs:string"/>
+<xs:element name="currentLabel" type="xs:string"/>
+<xs:element name="currentLabels" type="empty:ArraySchemaTypeValue"/>
+<xs:element name="currentScene" type="SceneSchemaTypeValue"/>
+<xs:element name="enabled" type="xs:boolean"/>
+<xs:element name="framesLoaded" type="xs:int"/>
+<xs:element name="scenes" type="empty:ArraySchemaTypeValue"/>
+<xs:element name="totalFrames" type="xs:int"/>
+<xs:element name="trackAsMenu" type="xs:boolean"/>
+</xs:sequence>
+<xs:attribute name="currentFrame" type="xs:int"/>
+<xs:attribute name="currentFrameLabel" type="xs:string"/>
+<xs:attribute name="currentLabel" type="xs:string"/>
+<xs:attribute name="currentLabels" type="xs:string"/>
+<xs:attribute name="currentScene" type="xs:string"/>
+<xs:attribute name="enabled" type="xs:boolean"/>
+<xs:attribute name="framesLoaded" type="xs:int"/>
+<xs:attribute name="scenes" type="xs:string"/>
+<xs:attribute name="totalFrames" type="xs:int"/>
+<xs:attribute name="trackAsMenu" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BitmapDataSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="height" type="xs:int"/>
+<xs:element name="rect" type="flash-geom:RectangleSchemaTypeValue"/>
+<xs:element name="transparent" type="xs:boolean"/>
+<xs:element name="width" type="xs:int"/>
+</xs:sequence>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="rect" type="xs:string"/>
+<xs:attribute name="transparent" type="xs:boolean"/>
+<xs:attribute name="width" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IGraphicsDataSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SpriteSchemaType">
+<xs:complexContent>
+<xs:extension base="DisplayObjectContainerSchemaType">
+<xs:sequence>
+<xs:element name="buttonMode" type="xs:boolean"/>
+<xs:element name="dropTarget" type="DisplayObjectSchemaTypeValue"/>
+<xs:element name="graphics" type="GraphicsSchemaTypeValue"/>
+<xs:element name="hitArea" type="SpriteSchemaTypeValue"/>
+<xs:element name="soundTransform" type="flash-media:SoundTransformSchemaTypeValue"/>
+<xs:element name="useHandCursor" type="xs:boolean"/>
+</xs:sequence>
+<xs:attribute name="buttonMode" type="xs:boolean"/>
+<xs:attribute name="dropTarget" type="xs:string"/>
+<xs:attribute name="graphics" type="xs:string"/>
+<xs:attribute name="hitArea" type="xs:string"/>
+<xs:attribute name="soundTransform" type="xs:string"/>
+<xs:attribute name="useHandCursor" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FrameLabelSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
+<xs:element name="frame" type="xs:int"/>
+<xs:element name="name" type="xs:string"/>
+</xs:sequence>
+<xs:attribute name="frame" type="xs:int"/>
+<xs:attribute name="name" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IBitmapDrawableSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StageSchemaType">
+<xs:complexContent>
+<xs:extension base="DisplayObjectContainerSchemaType">
+<xs:sequence>
+<xs:element name="align" type="xs:string"/>
+<xs:element name="colorCorrection" type="xs:string"/>
+<xs:element name="colorCorrectionSupport" type="xs:string"/>
+<xs:element name="displayState" type="xs:string"/>
+<xs:element name="focus" type="InteractiveObjectSchemaTypeValue"/>
+<xs:element name="frameRate" type="xs:double"/>
+<xs:element name="fullScreenHeight" type="xs:string"/>
+<xs:element name="fullScreenSourceRect" type="flash-geom:RectangleSchemaTypeValue"/>
+<xs:element name="fullScreenWidth" type="xs:string"/>
+<xs:element name="quality" type="xs:string"/>
+<xs:element name="scaleMode" type="xs:string"/>
+<xs:element name="showDefaultContextMenu" type="xs:boolean"/>
+<xs:element name="stageFocusRect" type="xs:boolean"/>
+<xs:element name="stageHeight" type="xs:int"/>
+<xs:element name="stageWidth" type="xs:int"/>
+</xs:sequence>
+<xs:attribute name="align" type="xs:string"/>
+<xs:attribute name="colorCorrection" type="xs:string"/>
+<xs:attribute name="colorCorrectionSupport" type="xs:string"/>
+<xs:attribute name="displayState" type="xs:string"/>
+<xs:attribute name="focus" type="xs:string"/>
+<xs:attribute name="frameRate" type="xs:double"/>
+<xs:attribute name="fullScreenHeight" type="xs:string"/>
+<xs:attribute name="fullScreenSourceRect" type="xs:string"/>
+<xs:attribute name="fullScreenWidth" type="xs:string"/>
+<xs:attribute name="quality" type="xs:string"/>
+<xs:attribute name="scaleMode" type="xs:string"/>
+<xs:attribute name="showDefaultContextMenu" type="xs:boolean"/>
+<xs:attribute name="stageFocusRect" type="xs:boolean"/>
+<xs:attribute name="stageHeight" type="xs:int"/>
+<xs:attribute name="stageWidth" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ShaderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="byteCode" type="flash-utils:ByteArraySchemaTypeValue"/>
+<xs:element name="data" type="ShaderDataSchemaTypeValue"/>
+<xs:element name="precisionHint" type="xs:string"/>
+</xs:sequence>
+<xs:attribute name="byteCode" type="xs:string"/>
+<xs:attribute name="data" type="xs:string"/>
+<xs:attribute name="precisionHint" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LoaderSchemaType">
+<xs:complexContent>
+<xs:extension base="DisplayObjectContainerSchemaType">
+<xs:sequence>
+<xs:element name="content" type="DisplayObjectSchemaTypeValue"/>
+<xs:element name="contentLoaderInfo" type="LoaderInfoSchemaTypeValue"/>
+</xs:sequence>
+<xs:attribute name="content" type="xs:string"/>
+<xs:attribute name="contentLoaderInfo" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SceneSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="labels" type="empty:ArraySchemaTypeValue"/>
+<xs:element name="name" type="xs:string"/>
+<xs:element name="numFrames" type="xs:int"/>
+</xs:sequence>
+<xs:attribute name="labels" type="xs:string"/>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="numFrames" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LoaderInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
+<xs:element name="actionScriptVersion" type="xs:string"/>
+<xs:element name="applicationDomain" type="flash-system:ApplicationDomainSchemaTypeValue"/>
+<xs:element name="bytes" type="flash-utils:ByteArraySchemaTypeValue"/>
+<xs:element name="bytesLoaded" type="xs:string"/>
+<xs:element name="bytesTotal" type="xs:string"/>
+<xs:element name="childAllowsParent" type="xs:boolean"/>
+<xs:element name="content" type="DisplayObjectSchemaTypeValue"/>
+<xs:element name="contentType" type="xs:string"/>
+<xs:element name="frameRate" type="xs:double"/>
+<xs:element name="height" type="xs:int"/>
+<xs:element name="loader" type="LoaderSchemaTypeValue"/>
+<xs:element name="loaderURL" type="xs:string"/>
+<xs:element name="parameters" type="xs:string"/>
+<xs:element name="parentAllowsChild" type="xs:boolean"/>
+<xs:element name="sameDomain" type="xs:boolean"/>
+<xs:element name="sharedEvents" type="flash-events:EventDispatcherSchemaTypeValue"/>
+<xs:element name="swfVersion" type="xs:string"/>
+<xs:element name="url" type="xs:string"/>
+<xs:element name="width" type="xs:int"/>
+</xs:sequence>
+<xs:attribute name="actionScriptVersion" type="xs:string"/>
+<xs:attribute name="applicationDomain" type="xs:string"/>
+<xs:attribute name="bytes" type="xs:string"/>
+<xs:attribute name="bytesLoaded" type="xs:string"/>
+<xs:attribute name="bytesTotal" type="xs:string"/>
+<xs:attribute name="childAllowsParent" type="xs:boolean"/>
+<xs:attribute name="content" type="xs:string"/>
+<xs:attribute name="contentType" type="xs:string"/>
+<xs:attribute name="frameRate" type="xs:double"/>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="loader" type="xs:string"/>
+<xs:attribute name="loaderURL" type="xs:string"/>
+<xs:attribute name="parameters" type="xs:string"/>
+<xs:attribute name="parentAllowsChild" type="xs:boolean"/>
+<xs:attribute name="sameDomain" type="xs:boolean"/>
+<xs:attribute name="sharedEvents" type="xs:string"/>
+<xs:attribute name="swfVersion" type="xs:string"/>
+<xs:attribute name="url" type="xs:string"/>
+<xs:attribute name="width" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ShaderDataSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DisplayObjectContainerSchemaType">
+<xs:complexContent>
+<xs:extension base="InteractiveObjectSchemaType">
+<xs:sequence>
+<xs:element name="mouseChildren" type="xs:boolean"/>
+<xs:element name="numChildren" type="xs:int"/>
+<xs:element name="tabChildren" type="xs:boolean"/>
+<xs:element name="textSnapshot" type="flash-text:TextSnapshotSchemaTypeValue"/>
+</xs:sequence>
+<xs:attribute name="mouseChildren" type="xs:boolean"/>
+<xs:attribute name="numChildren" type="xs:int"/>
+<xs:attribute name="tabChildren" type="xs:boolean"/>
+<xs:attribute name="textSnapshot" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Graphics" type="GraphicsSchemaType"/>
+<xs:element name="Stage3D" type="Stage3DSchemaType"/>
+<xs:element name="DisplayObject" type="DisplayObjectSchemaType"/>
+<xs:element name="NativeMenu" type="NativeMenuSchemaType"/>
+<xs:element name="InteractiveObject" type="InteractiveObjectSchemaType"/>
+<xs:element name="MovieClip" type="MovieClipSchemaType"/>
+<xs:element name="BitmapData" type="BitmapDataSchemaType"/>
+<xs:element name="IGraphicsData" type="IGraphicsDataSchemaType"/>
+<xs:element name="Sprite" type="SpriteSchemaType"/>
+<xs:element name="FrameLabel" type="FrameLabelSchemaType"/>
+<xs:element name="IBitmapDrawable" type="IBitmapDrawableSchemaType"/>
+<xs:element name="Stage" type="StageSchemaType"/>
+<xs:element name="Shader" type="ShaderSchemaType"/>
+<xs:element name="Loader" type="LoaderSchemaType"/>
+<xs:element name="Scene" type="SceneSchemaType"/>
+<xs:element name="LoaderInfo" type="LoaderInfoSchemaType"/>
+<xs:element name="ShaderData" type="ShaderDataSchemaType"/>
+<xs:element name="DisplayObjectContainer" type="DisplayObjectContainerSchemaType"/>
+</xs:schema>

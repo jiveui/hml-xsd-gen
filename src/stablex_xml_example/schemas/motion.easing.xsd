@@ -1,0 +1,561 @@
+<xs:schema targetNamespace="motion.easing" xmlns="motion.easing" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="CubicEaseInSchemaTypeValue">
+<xs:sequence><xs:element ref="CubicEaseIn"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="LinearEaseNoneSchemaTypeValue">
+<xs:sequence><xs:element ref="LinearEaseNone"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="BounceEaseOutSchemaTypeValue">
+<xs:sequence><xs:element ref="BounceEaseOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="SineEaseInOutSchemaTypeValue">
+<xs:sequence><xs:element ref="SineEaseInOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="QuartEaseInOutSchemaTypeValue">
+<xs:sequence><xs:element ref="QuartEaseInOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="BackEaseOutSchemaTypeValue">
+<xs:sequence><xs:element ref="BackEaseOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="QuadSchemaTypeValue">
+<xs:sequence><xs:element ref="Quad"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="CubicSchemaTypeValue">
+<xs:sequence><xs:element ref="Cubic"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="ExpoEaseInOutSchemaTypeValue">
+<xs:sequence><xs:element ref="ExpoEaseInOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="QuintEaseInSchemaTypeValue">
+<xs:sequence><xs:element ref="QuintEaseIn"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="QuadEaseInSchemaTypeValue">
+<xs:sequence><xs:element ref="QuadEaseIn"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="BackSchemaTypeValue">
+<xs:sequence><xs:element ref="Back"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="QuintEaseOutSchemaTypeValue">
+<xs:sequence><xs:element ref="QuintEaseOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="SineSchemaTypeValue">
+<xs:sequence><xs:element ref="Sine"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="QuartEaseInSchemaTypeValue">
+<xs:sequence><xs:element ref="QuartEaseIn"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="ElasticEaseOutSchemaTypeValue">
+<xs:sequence><xs:element ref="ElasticEaseOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="BounceSchemaTypeValue">
+<xs:sequence><xs:element ref="Bounce"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="ExpoSchemaTypeValue">
+<xs:sequence><xs:element ref="Expo"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="SineEaseInSchemaTypeValue">
+<xs:sequence><xs:element ref="SineEaseIn"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="QuartEaseOutSchemaTypeValue">
+<xs:sequence><xs:element ref="QuartEaseOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="ElasticEaseInSchemaTypeValue">
+<xs:sequence><xs:element ref="ElasticEaseIn"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="LinearSchemaTypeValue">
+<xs:sequence><xs:element ref="Linear"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="QuartSchemaTypeValue">
+<xs:sequence><xs:element ref="Quart"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="BackEaseInOutSchemaTypeValue">
+<xs:sequence><xs:element ref="BackEaseInOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="BounceEaseInOutSchemaTypeValue">
+<xs:sequence><xs:element ref="BounceEaseInOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="BounceEaseInSchemaTypeValue">
+<xs:sequence><xs:element ref="BounceEaseIn"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="ElasticSchemaTypeValue">
+<xs:sequence><xs:element ref="Elastic"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="ElasticEaseInOutSchemaTypeValue">
+<xs:sequence><xs:element ref="ElasticEaseInOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="CubicEaseOutSchemaTypeValue">
+<xs:sequence><xs:element ref="CubicEaseOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="QuadEaseOutSchemaTypeValue">
+<xs:sequence><xs:element ref="QuadEaseOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="SineEaseOutSchemaTypeValue">
+<xs:sequence><xs:element ref="SineEaseOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="BackEaseInSchemaTypeValue">
+<xs:sequence><xs:element ref="BackEaseIn"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="IEasingSchemaTypeValue">
+<xs:choice>
+<xs:element ref="SineEaseIn" />
+<xs:element ref="ElasticEaseInOut" />
+<xs:element ref="BackEaseIn" />
+<xs:element ref="CubicEaseIn" />
+<xs:element ref="QuartEaseOut" />
+<xs:element ref="ExpoEaseIn" />
+<xs:element ref="ExpoEaseInOut" />
+<xs:element ref="QuintEaseOut" />
+<xs:element ref="QuartEaseIn" />
+<xs:element ref="ElasticEaseIn" />
+<xs:element ref="CubicEaseOut" />
+<xs:element ref="QuadEaseInOut" />
+<xs:element ref="LinearEaseNone" />
+<xs:element ref="ElasticEaseOut" />
+<xs:element ref="BounceEaseOut" />
+<xs:element ref="QuintEaseIn" />
+<xs:element ref="CubicEaseInOut" />
+<xs:element ref="SineEaseInOut" />
+<xs:element ref="BackEaseInOut" />
+<xs:element ref="ExpoEaseOut" />
+<xs:element ref="BounceEaseInOut" />
+<xs:element ref="QuadEaseOut" />
+<xs:element ref="QuartEaseInOut" />
+<xs:element ref="QuadEaseIn" />
+<xs:element ref="BounceEaseIn" />
+<xs:element ref="QuintEaseInOut" />
+<xs:element ref="BackEaseOut" />
+<xs:element ref="SineEaseOut" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="CubicEaseInOutSchemaTypeValue">
+<xs:sequence><xs:element ref="CubicEaseInOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="ExpoEaseOutSchemaTypeValue">
+<xs:sequence><xs:element ref="ExpoEaseOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="ExpoEaseInSchemaTypeValue">
+<xs:sequence><xs:element ref="ExpoEaseIn"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="QuintSchemaTypeValue">
+<xs:sequence><xs:element ref="Quint"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="QuadEaseInOutSchemaTypeValue">
+<xs:sequence><xs:element ref="QuadEaseInOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="QuintEaseInOutSchemaTypeValue">
+<xs:sequence><xs:element ref="QuintEaseInOut"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="CubicEaseInSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LinearEaseNoneSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BounceEaseOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SineEaseInOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuartEaseInOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BackEaseOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="s" type="xs:double"/>
+</xs:sequence>
+<xs:attribute name="s" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuadSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CubicSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExpoEaseInOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuintEaseInSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuadEaseInSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BackSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuintEaseOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SineSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuartEaseInSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ElasticEaseOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="a" type="xs:double"/>
+<xs:element name="p" type="xs:double"/>
+</xs:sequence>
+<xs:attribute name="a" type="xs:double"/>
+<xs:attribute name="p" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BounceSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExpoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SineEaseInSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuartEaseOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ElasticEaseInSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="a" type="xs:double"/>
+<xs:element name="p" type="xs:double"/>
+</xs:sequence>
+<xs:attribute name="a" type="xs:double"/>
+<xs:attribute name="p" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LinearSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuartSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BackEaseInOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="s" type="xs:double"/>
+</xs:sequence>
+<xs:attribute name="s" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BounceEaseInOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BounceEaseInSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ElasticSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ElasticEaseInOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="a" type="xs:double"/>
+<xs:element name="p" type="xs:double"/>
+</xs:sequence>
+<xs:attribute name="a" type="xs:double"/>
+<xs:attribute name="p" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CubicEaseOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuadEaseOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SineEaseOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BackEaseInSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="s" type="xs:double"/>
+</xs:sequence>
+<xs:attribute name="s" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IEasingSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CubicEaseInOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExpoEaseOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExpoEaseInSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuintSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuadEaseInOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuintEaseInOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="CubicEaseIn" type="CubicEaseInSchemaType"/>
+<xs:element name="LinearEaseNone" type="LinearEaseNoneSchemaType"/>
+<xs:element name="BounceEaseOut" type="BounceEaseOutSchemaType"/>
+<xs:element name="SineEaseInOut" type="SineEaseInOutSchemaType"/>
+<xs:element name="QuartEaseInOut" type="QuartEaseInOutSchemaType"/>
+<xs:element name="BackEaseOut" type="BackEaseOutSchemaType"/>
+<xs:element name="Quad" type="QuadSchemaType"/>
+<xs:element name="Cubic" type="CubicSchemaType"/>
+<xs:element name="ExpoEaseInOut" type="ExpoEaseInOutSchemaType"/>
+<xs:element name="QuintEaseIn" type="QuintEaseInSchemaType"/>
+<xs:element name="QuadEaseIn" type="QuadEaseInSchemaType"/>
+<xs:element name="Back" type="BackSchemaType"/>
+<xs:element name="QuintEaseOut" type="QuintEaseOutSchemaType"/>
+<xs:element name="Sine" type="SineSchemaType"/>
+<xs:element name="QuartEaseIn" type="QuartEaseInSchemaType"/>
+<xs:element name="ElasticEaseOut" type="ElasticEaseOutSchemaType"/>
+<xs:element name="Bounce" type="BounceSchemaType"/>
+<xs:element name="Expo" type="ExpoSchemaType"/>
+<xs:element name="SineEaseIn" type="SineEaseInSchemaType"/>
+<xs:element name="QuartEaseOut" type="QuartEaseOutSchemaType"/>
+<xs:element name="ElasticEaseIn" type="ElasticEaseInSchemaType"/>
+<xs:element name="Linear" type="LinearSchemaType"/>
+<xs:element name="Quart" type="QuartSchemaType"/>
+<xs:element name="BackEaseInOut" type="BackEaseInOutSchemaType"/>
+<xs:element name="BounceEaseInOut" type="BounceEaseInOutSchemaType"/>
+<xs:element name="BounceEaseIn" type="BounceEaseInSchemaType"/>
+<xs:element name="Elastic" type="ElasticSchemaType"/>
+<xs:element name="ElasticEaseInOut" type="ElasticEaseInOutSchemaType"/>
+<xs:element name="CubicEaseOut" type="CubicEaseOutSchemaType"/>
+<xs:element name="QuadEaseOut" type="QuadEaseOutSchemaType"/>
+<xs:element name="SineEaseOut" type="SineEaseOutSchemaType"/>
+<xs:element name="BackEaseIn" type="BackEaseInSchemaType"/>
+<xs:element name="IEasing" type="IEasingSchemaType"/>
+<xs:element name="CubicEaseInOut" type="CubicEaseInOutSchemaType"/>
+<xs:element name="ExpoEaseOut" type="ExpoEaseOutSchemaType"/>
+<xs:element name="ExpoEaseIn" type="ExpoEaseInSchemaType"/>
+<xs:element name="Quint" type="QuintSchemaType"/>
+<xs:element name="QuadEaseInOut" type="QuadEaseInOutSchemaType"/>
+<xs:element name="QuintEaseInOut" type="QuintEaseInOutSchemaType"/>
+</xs:schema>

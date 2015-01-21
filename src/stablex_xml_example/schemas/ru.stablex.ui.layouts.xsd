@@ -1,0 +1,21 @@
+<xs:schema targetNamespace="ru.stablex.ui.layouts" xmlns="ru.stablex.ui.layouts" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="LayoutSchemaTypeValue">
+<xs:sequence><xs:element ref="Layout"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="LayoutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="as" type="xs:string"/>
+</xs:sequence>
+<xs:attribute name="as" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Layout" type="LayoutSchemaType"/>
+</xs:schema>

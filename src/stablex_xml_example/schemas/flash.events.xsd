@@ -1,0 +1,214 @@
+<xs:schema targetNamespace="flash.events" xmlns="flash.events" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:ru-stablex-ui-widgets="ru.stablex.ui.widgets"
+xmlns:flash-text="flash.text"
+xmlns:flash-ui="flash.ui"
+xmlns:ru-stablex="ru.stablex"
+xmlns:flash-display="flash.display"
+xmlns:flash-net="flash.net"
+xmlns:flash-display3D="flash.display3D"
+xmlns:flash="flash"
+xmlns:flash-display3D-textures="flash.display3D.textures"
+xmlns:empty="empty"
+xmlns:ru-stablex-ui-events="ru.stablex.ui.events"
+xmlns:flash-media="flash.media"
+xmlns:flash-_Boot="flash._Boot"
+>
+<xs:import namespace="ru.stablex.ui.widgets" schemaLocation="ru.stablex.ui.widgets.xsd" />
+<xs:import namespace="flash.text" schemaLocation="flash.text.xsd" />
+<xs:import namespace="flash.ui" schemaLocation="flash.ui.xsd" />
+<xs:import namespace="ru.stablex" schemaLocation="ru.stablex.xsd" />
+<xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
+<xs:import namespace="flash.net" schemaLocation="flash.net.xsd" />
+<xs:import namespace="flash.display3D" schemaLocation="flash.display3D.xsd" />
+<xs:import namespace="flash" schemaLocation="flash.xsd" />
+<xs:import namespace="flash.display3D.textures" schemaLocation="flash.display3D.textures.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="ru.stablex.ui.events" schemaLocation="ru.stablex.ui.events.xsd" />
+<xs:import namespace="flash.media" schemaLocation="flash.media.xsd" />
+<xs:import namespace="flash._Boot" schemaLocation="flash._Boot.xsd" />
+<xs:complexType name="EventDispatcherSchemaTypeValue">
+<xs:choice>
+<xs:element ref="flash-display:DisplayObject" />
+<xs:element ref="flash-display3D:Context3D" />
+<xs:element ref="flash-display:Loader" />
+<xs:element ref="ru-stablex:TweenSprite" />
+<xs:element ref="flash-display:NativeMenu" />
+<xs:element ref="ru-stablex-ui-widgets:Widget" />
+<xs:element ref="flash-text:TextField" />
+<xs:element ref="flash-ui:ContextMenu" />
+<xs:element ref="flash-display3D-textures:TextureBase" />
+<xs:element ref="flash-display3D-textures:RectangleTexture" />
+<xs:element ref="flash-display:InteractiveObject" />
+<xs:element ref="flash-media:Camera" />
+<xs:element ref="flash-display:MovieClip" />
+<xs:element ref="flash-display:Sprite" />
+<xs:element ref="UncaughtErrorEvents" />
+<xs:element ref="ru-stablex-ui-widgets:Tip" />
+<xs:element ref="flash-text:StyleSheet" />
+<xs:element ref="flash-_Boot:RealBoot" />
+<xs:element ref="flash-display:FrameLabel" />
+<xs:element ref="empty:Main" />
+<xs:element ref="flash-net:NetStream" />
+<xs:element ref="ru-stablex-ui-widgets:Text" />
+<xs:element ref="flash-display:LoaderInfo" />
+<xs:element ref="flash-display:Stage" />
+<xs:element ref="flash:Boot" />
+<xs:element ref="flash-media:StageVideo" />
+<xs:element ref="flash-display3D-textures:CubeTexture" />
+<xs:element ref="flash-media:AVStream" />
+<xs:element ref="flash-display3D-textures:Texture" />
+<xs:element ref="flash-display:Stage3D" />
+<xs:element ref="flash-net:NetStreamPlayOptions" />
+<xs:element ref="flash-media:Microphone" />
+<xs:element ref="flash-display:DisplayObjectContainer" />
+<xs:element ref="ru-stablex-ui-widgets:Box" />
+<xs:element ref="ru-stablex-ui-widgets:Floating" />
+<xs:element ref="flash-media:AVSource" />
+<xs:element ref="flash-net:NetConnection" />
+<xs:element ref="EventDispatcher" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="UncaughtErrorEventsSchemaTypeValue">
+<xs:sequence><xs:element ref="UncaughtErrorEvents"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="EventSchemaTypeValue">
+<xs:choice>
+<xs:element ref="ru-stablex-ui-events:WidgetEvent" />
+<xs:element ref="MouseEvent" />
+<xs:element ref="Event" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="IEventDispatcherSchemaTypeValue">
+<xs:choice>
+<xs:element ref="flash-display:DisplayObject" />
+<xs:element ref="flash-display3D:Context3D" />
+<xs:element ref="flash-display:Loader" />
+<xs:element ref="ru-stablex:TweenSprite" />
+<xs:element ref="flash-display:NativeMenu" />
+<xs:element ref="ru-stablex-ui-widgets:Widget" />
+<xs:element ref="flash-text:TextField" />
+<xs:element ref="flash-ui:ContextMenu" />
+<xs:element ref="flash-display3D-textures:TextureBase" />
+<xs:element ref="flash-display3D-textures:RectangleTexture" />
+<xs:element ref="flash-display:InteractiveObject" />
+<xs:element ref="flash-media:Camera" />
+<xs:element ref="flash-display:MovieClip" />
+<xs:element ref="flash-display:Sprite" />
+<xs:element ref="UncaughtErrorEvents" />
+<xs:element ref="EventDispatcher" />
+<xs:element ref="ru-stablex-ui-widgets:Tip" />
+<xs:element ref="flash-text:StyleSheet" />
+<xs:element ref="flash-_Boot:RealBoot" />
+<xs:element ref="flash-display:FrameLabel" />
+<xs:element ref="empty:Main" />
+<xs:element ref="flash-net:NetStream" />
+<xs:element ref="ru-stablex-ui-widgets:Text" />
+<xs:element ref="flash-display:LoaderInfo" />
+<xs:element ref="flash-display:Stage" />
+<xs:element ref="flash:Boot" />
+<xs:element ref="flash-media:StageVideo" />
+<xs:element ref="flash-display3D-textures:CubeTexture" />
+<xs:element ref="flash-media:AVStream" />
+<xs:element ref="flash-display3D-textures:Texture" />
+<xs:element ref="flash-display:Stage3D" />
+<xs:element ref="flash-net:NetStreamPlayOptions" />
+<xs:element ref="flash-media:Microphone" />
+<xs:element ref="flash-display:DisplayObjectContainer" />
+<xs:element ref="ru-stablex-ui-widgets:Box" />
+<xs:element ref="ru-stablex-ui-widgets:Floating" />
+<xs:element ref="flash-media:AVSource" />
+<xs:element ref="flash-net:NetConnection" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="MouseEventSchemaTypeValue">
+<xs:sequence><xs:element ref="MouseEvent"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="EventDispatcherSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="UncaughtErrorEventsSchemaType">
+<xs:complexContent>
+<xs:extension base="EventDispatcherSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="EventSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="bubbles" type="xs:boolean"/>
+<xs:element name="cancelable" type="xs:boolean"/>
+<xs:element name="currentTarget" type="xs:string"/>
+<xs:element name="eventPhase" type="xs:string"/>
+<xs:element name="target" type="xs:string"/>
+<xs:element name="type" type="xs:string"/>
+</xs:sequence>
+<xs:attribute name="bubbles" type="xs:boolean"/>
+<xs:attribute name="cancelable" type="xs:boolean"/>
+<xs:attribute name="currentTarget" type="xs:string"/>
+<xs:attribute name="eventPhase" type="xs:string"/>
+<xs:attribute name="target" type="xs:string"/>
+<xs:attribute name="type" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IEventDispatcherSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MouseEventSchemaType">
+<xs:complexContent>
+<xs:extension base="EventSchemaType">
+<xs:sequence>
+<xs:element name="altKey" type="xs:boolean"/>
+<xs:element name="buttonDown" type="xs:boolean"/>
+<xs:element name="ctrlKey" type="xs:boolean"/>
+<xs:element name="delta" type="xs:int"/>
+<xs:element name="isRelatedObjectInaccessible" type="xs:boolean"/>
+<xs:element name="localX" type="xs:double"/>
+<xs:element name="localY" type="xs:double"/>
+<xs:element name="relatedObject" type="flash-display:InteractiveObjectSchemaTypeValue"/>
+<xs:element name="shiftKey" type="xs:boolean"/>
+<xs:element name="stageX" type="xs:double"/>
+<xs:element name="stageY" type="xs:double"/>
+</xs:sequence>
+<xs:attribute name="altKey" type="xs:boolean"/>
+<xs:attribute name="buttonDown" type="xs:boolean"/>
+<xs:attribute name="ctrlKey" type="xs:boolean"/>
+<xs:attribute name="delta" type="xs:int"/>
+<xs:attribute name="isRelatedObjectInaccessible" type="xs:boolean"/>
+<xs:attribute name="localX" type="xs:double"/>
+<xs:attribute name="localY" type="xs:double"/>
+<xs:attribute name="relatedObject" type="xs:string"/>
+<xs:attribute name="shiftKey" type="xs:boolean"/>
+<xs:attribute name="stageX" type="xs:double"/>
+<xs:attribute name="stageY" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="EventDispatcher" type="EventDispatcherSchemaType"/>
+<xs:element name="UncaughtErrorEvents" type="UncaughtErrorEventsSchemaType"/>
+<xs:element name="Event" type="EventSchemaType"/>
+<xs:element name="IEventDispatcher" type="IEventDispatcherSchemaType"/>
+<xs:element name="MouseEvent" type="MouseEventSchemaType"/>
+</xs:schema>

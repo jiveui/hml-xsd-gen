@@ -1,0 +1,19 @@
+<xs:schema targetNamespace="ru.stablex.ui" xmlns="ru.stablex.ui" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="UIBuilderSchemaTypeValue">
+<xs:sequence><xs:element ref="UIBuilder"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="UIBuilderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="UIBuilder" type="UIBuilderSchemaType"/>
+</xs:schema>
