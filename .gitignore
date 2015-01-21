@@ -1,0 +1,8 @@
+.idea/*
+*.iws
+*.iml
+*.ipr
+src/*/bin/flash/*.swf
+*.lxproj
+*.lxsopt
+
