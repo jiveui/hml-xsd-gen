@@ -44,6 +44,10 @@ class SchemaType {
 
     public function addImplementer(t: SchemaType) {
         implementers.set(t.getName(), t);
+        var base = getBase();
+        if (null != base) {
+            getBase().addImplementer(t);
+        }
         if (getNameSpace() != t.getNameSpace()) {
             getNameSpace().addDependence(t.getNameSpace());
         }
