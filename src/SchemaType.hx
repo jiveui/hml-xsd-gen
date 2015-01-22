@@ -132,7 +132,7 @@ class SchemaType {
 
     private function fillPropertiesElements(buf: StringBuf, namespace: SchemaNamespace) {
         for (p in getProperties(namespace)) {
-            buf.add('<xs:element name="${p.name}" type="${p.type}"/>\n');
+            buf.add('<xs:element minOccurs="0" name="${p.name}" type="${p.type}"/>\n');
         }
     }
 
@@ -149,26 +149,26 @@ class SchemaType {
         if (getBase() != null) {
             buf.add('<xs:complexContent>\n');
             buf.add('<xs:extension base="${getBase().getComplexTypeName(namespace)}">\n');
-            buf.add("<xs:sequence>\n");
+            buf.add("<xs:all minOccurs='0'>\n");
             if (Generator.onlyExplicitChildren) {
                 for(ch in getExplicitChildren()) {
-                    buf.add('<xs:element ref="${ch.getElementName(getNameSpace())}" />\n');
+                    buf.add('<xs:element minOccurs="0" ref="${ch.getElementName(getNameSpace())}" />\n');
                 }
             }
             fillPropertiesElements(buf, namespace);
-            buf.add("</xs:sequence>\n");
+            buf.add("</xs:all>\n");
             fillPropertiesAttributes(buf, namespace);
             buf.add('</xs:extension>\n');
             buf.add('</xs:complexContent>\n');
         } else {
-            buf.add("<xs:sequence>\n");
+            buf.add("<xs:all>\n");
             if (Generator.onlyExplicitChildren) {
                 for(ch in getExplicitChildren()) {
-                    buf.add('<xs:element ref="${ch.getElementName(getNameSpace())}" />\n');
+                    buf.add('<xs:element minOccurs="0" ref="${ch.getElementName(getNameSpace())}" />\n');
                 }
             }
             fillPropertiesElements(buf, namespace);
-            buf.add("</xs:sequence>\n");
+            buf.add("</xs:all>\n");
             fillPropertiesAttributes(buf, namespace);
         }
         buf.add('</xs:complexType>\n');
@@ -185,7 +185,7 @@ class SchemaType {
             }
             buf.add("</xs:choice>\n");
         } else {
-            buf.add('<xs:sequence><xs:element ref="${getElementName(getNameSpace())}"/></xs:sequence>');
+            buf.add('<xs:all><xs:element ref="${getElementName(getNameSpace())}"/></xs:all>');
         }
         buf.add('</xs:complexType>\n');
         return buf.toString();
