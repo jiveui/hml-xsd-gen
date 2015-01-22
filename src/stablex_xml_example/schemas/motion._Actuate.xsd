@@ -1,0 +1,47 @@
+<xs:schema targetNamespace="motion._Actuate" xmlns="motion._Actuate" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="TransformOptionsSchemaTypeValue">
+<xs:sequence><xs:element ref="TransformOptions"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="TweenTimerSchemaTypeValue">
+<xs:sequence><xs:element ref="TweenTimer"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="EffectsOptionsSchemaTypeValue">
+<xs:sequence><xs:element ref="EffectsOptions"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="TransformOptionsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TweenTimerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="progress" type="xs:double"/>
+</xs:sequence>
+<xs:attribute name="progress" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="EffectsOptionsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="TransformOptions" type="TransformOptionsSchemaType"/>
+<xs:element name="TweenTimer" type="TweenTimerSchemaType"/>
+<xs:element name="EffectsOptions" type="EffectsOptionsSchemaType"/>
+</xs:schema>

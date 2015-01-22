@@ -1,0 +1,8 @@
+-main Main.hx
+-lib openfl
+-lib actuate
+-lib stablexui
+-swf bin/flash/main.swf
+-swf-header 800:600:60:FFFFFF
+
+-xml ../gen/codestructure.xml

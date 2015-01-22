@@ -1,0 +1,80 @@
+<xs:schema targetNamespace="ru.stablex.ui.skins" xmlns="ru.stablex.ui.skins" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="SkinSchemaTypeValue">
+<xs:choice>
+<xs:element ref="Paint" />
+<xs:element ref="Rect" />
+<xs:element ref="Skin" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="RectSchemaTypeValue">
+<xs:choice>
+<xs:element ref="Paint" />
+<xs:element ref="Rect" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="PaintSchemaTypeValue">
+<xs:sequence><xs:element ref="Paint"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="SkinSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="clear" type="xs:boolean"/>
+<xs:element name="as" type="xs:string"/>
+</xs:sequence>
+<xs:attribute name="clear" type="xs:boolean"/>
+<xs:attribute name="as" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RectSchemaType">
+<xs:complexContent>
+<xs:extension base="SkinSchemaType">
+<xs:sequence>
+<xs:element name="border" type="xs:double"/>
+<xs:element name="borderColor" type="xs:int"/>
+<xs:element name="borderAlpha" type="xs:double"/>
+<xs:element name="corners" type="empty:ArraySchemaTypeValue"/>
+<xs:element name="paddingTop" type="xs:double"/>
+<xs:element name="paddingRight" type="xs:double"/>
+<xs:element name="paddingBottom" type="xs:double"/>
+<xs:element name="paddingLeft" type="xs:double"/>
+<xs:element name="padding" type="xs:double"/>
+</xs:sequence>
+<xs:attribute name="border" type="xs:double"/>
+<xs:attribute name="borderColor" type="xs:int"/>
+<xs:attribute name="borderAlpha" type="xs:double"/>
+<xs:attribute name="corners" type="xs:string"/>
+<xs:attribute name="paddingTop" type="xs:double"/>
+<xs:attribute name="paddingRight" type="xs:double"/>
+<xs:attribute name="paddingBottom" type="xs:double"/>
+<xs:attribute name="paddingLeft" type="xs:double"/>
+<xs:attribute name="padding" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PaintSchemaType">
+<xs:complexContent>
+<xs:extension base="RectSchemaType">
+<xs:sequence>
+<xs:element name="color" type="xs:int"/>
+<xs:element name="alpha" type="xs:double"/>
+</xs:sequence>
+<xs:attribute name="color" type="xs:int"/>
+<xs:attribute name="alpha" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Skin" type="SkinSchemaType"/>
+<xs:element name="Rect" type="RectSchemaType"/>
+<xs:element name="Paint" type="PaintSchemaType"/>
+</xs:schema>

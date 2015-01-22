@@ -1,0 +1,23 @@
+<xs:schema targetNamespace="ru.stablex.ui.events" xmlns="ru.stablex.ui.events" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:ru-stablex-ui-widgets="ru.stablex.ui.widgets"
+xmlns:flash-events="flash.events"
+>
+<xs:import namespace="ru.stablex.ui.widgets" schemaLocation="ru.stablex.ui.widgets.xsd" />
+<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
+<xs:complexType name="WidgetEventSchemaTypeValue">
+<xs:sequence><xs:element ref="WidgetEvent"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="WidgetEventSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventSchemaType">
+<xs:sequence>
+<xs:element name="widget" type="ru-stablex-ui-widgets:WidgetSchemaTypeValue"/>
+</xs:sequence>
+<xs:attribute name="widget" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="WidgetEvent" type="WidgetEventSchemaType"/>
+</xs:schema>

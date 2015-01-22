@@ -1,0 +1,44 @@
+<xs:schema targetNamespace="ru.stablex" xmlns="ru.stablex" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:ru-stablex-ui-widgets="ru.stablex.ui.widgets"
+xmlns:flash-display="flash.display"
+xmlns:empty="empty"
+>
+<xs:import namespace="ru.stablex.ui.widgets" schemaLocation="ru.stablex.ui.widgets.xsd" />
+<xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="TweenSpriteSchemaTypeValue">
+<xs:choice>
+<xs:element ref="ru-stablex-ui-widgets:Text" />
+<xs:element ref="ru-stablex-ui-widgets:Widget" />
+<xs:element ref="ru-stablex-ui-widgets:Box" />
+<xs:element ref="ru-stablex-ui-widgets:Floating" />
+<xs:element ref="ru-stablex-ui-widgets:Tip" />
+<xs:element ref="TweenSprite" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ErrSchemaTypeValue">
+<xs:sequence><xs:element ref="Err"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="TweenSpriteSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-display:SpriteSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ErrSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="TweenSprite" type="TweenSpriteSchemaType"/>
+<xs:element name="Err" type="ErrSchemaType"/>
+</xs:schema>

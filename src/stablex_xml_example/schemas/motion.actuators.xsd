@@ -1,0 +1,172 @@
+<xs:schema targetNamespace="motion.actuators" xmlns="motion.actuators" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:motion="motion"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="motion" schemaLocation="motion.xsd" />
+<xs:complexType name="IGenericActuatorSchemaTypeValue">
+<xs:choice>
+<xs:element ref="GenericActuator" />
+<xs:element ref="FilterActuator" />
+<xs:element ref="MethodActuator" />
+<xs:element ref="MotionPathActuator" />
+<xs:element ref="SimpleActuator" />
+<xs:element ref="TransformActuator" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="MotionPathActuatorSchemaTypeValue">
+<xs:sequence><xs:element ref="MotionPathActuator"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="PropertyPathDetailsSchemaTypeValue">
+<xs:sequence><xs:element ref="PropertyPathDetails"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="SimpleActuatorSchemaTypeValue">
+<xs:choice>
+<xs:element ref="FilterActuator" />
+<xs:element ref="MethodActuator" />
+<xs:element ref="MotionPathActuator" />
+<xs:element ref="TransformActuator" />
+<xs:element ref="SimpleActuator" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="PropertyDetailsSchemaTypeValue">
+<xs:choice>
+<xs:element ref="PropertyPathDetails" />
+<xs:element ref="PropertyDetails" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="GenericActuatorSchemaTypeValue">
+<xs:choice>
+<xs:element ref="FilterActuator" />
+<xs:element ref="MethodActuator" />
+<xs:element ref="MotionPathActuator" />
+<xs:element ref="SimpleActuator" />
+<xs:element ref="TransformActuator" />
+<xs:element ref="GenericActuator" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="FilterActuatorSchemaTypeValue">
+<xs:sequence><xs:element ref="FilterActuator"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="MethodActuatorSchemaTypeValue">
+<xs:sequence><xs:element ref="MethodActuator"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="TransformActuatorSchemaTypeValue">
+<xs:sequence><xs:element ref="TransformActuator"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="IGenericActuatorSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MotionPathActuatorSchemaType">
+<xs:complexContent>
+<xs:extension base="SimpleActuatorSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PropertyPathDetailsSchemaType">
+<xs:complexContent>
+<xs:extension base="PropertyDetailsSchemaType">
+<xs:sequence>
+<xs:element name="path" type="motion:IComponentPathSchemaTypeValue"/>
+</xs:sequence>
+<xs:attribute name="path" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SimpleActuatorSchemaType">
+<xs:complexContent>
+<xs:extension base="GenericActuatorSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PropertyDetailsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="change" type="xs:double"/>
+<xs:element name="isField" type="xs:boolean"/>
+<xs:element name="propertyName" type="xs:string"/>
+<xs:element name="start" type="xs:double"/>
+<xs:element name="target" type="xs:string"/>
+</xs:sequence>
+<xs:attribute name="change" type="xs:double"/>
+<xs:attribute name="isField" type="xs:boolean"/>
+<xs:attribute name="propertyName" type="xs:string"/>
+<xs:attribute name="start" type="xs:double"/>
+<xs:attribute name="target" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GenericActuatorSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="duration" type="xs:double"/>
+<xs:element name="id" type="xs:string"/>
+<xs:element name="properties" type="xs:string"/>
+<xs:element name="target" type="xs:string"/>
+</xs:sequence>
+<xs:attribute name="duration" type="xs:double"/>
+<xs:attribute name="id" type="xs:string"/>
+<xs:attribute name="properties" type="xs:string"/>
+<xs:attribute name="target" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FilterActuatorSchemaType">
+<xs:complexContent>
+<xs:extension base="SimpleActuatorSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MethodActuatorSchemaType">
+<xs:complexContent>
+<xs:extension base="SimpleActuatorSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TransformActuatorSchemaType">
+<xs:complexContent>
+<xs:extension base="SimpleActuatorSchemaType">
+<xs:sequence>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="IGenericActuator" type="IGenericActuatorSchemaType"/>
+<xs:element name="MotionPathActuator" type="MotionPathActuatorSchemaType"/>
+<xs:element name="PropertyPathDetails" type="PropertyPathDetailsSchemaType"/>
+<xs:element name="SimpleActuator" type="SimpleActuatorSchemaType"/>
+<xs:element name="PropertyDetails" type="PropertyDetailsSchemaType"/>
+<xs:element name="GenericActuator" type="GenericActuatorSchemaType"/>
+<xs:element name="FilterActuator" type="FilterActuatorSchemaType"/>
+<xs:element name="MethodActuator" type="MethodActuatorSchemaType"/>
+<xs:element name="TransformActuator" type="TransformActuatorSchemaType"/>
+</xs:schema>

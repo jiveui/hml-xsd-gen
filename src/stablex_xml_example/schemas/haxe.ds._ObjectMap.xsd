@@ -1,0 +1,23 @@
+<xs:schema targetNamespace="haxe.ds._ObjectMap" xmlns="haxe.ds._ObjectMap" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="NativeValueIteratorSchemaTypeValue">
+<xs:sequence><xs:element ref="NativeValueIterator"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="NativeValueIteratorSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="hasNext" type="xs:string"/>
+<xs:element name="next" type="xs:string"/>
+</xs:sequence>
+<xs:attribute name="hasNext" type="xs:string"/>
+<xs:attribute name="next" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="NativeValueIterator" type="NativeValueIteratorSchemaType"/>
+</xs:schema>

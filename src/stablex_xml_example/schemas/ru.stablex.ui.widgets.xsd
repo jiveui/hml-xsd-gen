@@ -1,0 +1,196 @@
+<xs:schema targetNamespace="ru.stablex.ui.widgets" xmlns="ru.stablex.ui.widgets" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:flash-text="flash.text"
+xmlns:ru-stablex="ru.stablex"
+xmlns:ru-stablex-ui-skins="ru.stablex.ui.skins"
+xmlns:ru-stablex-ui-layouts="ru.stablex.ui.layouts"
+>
+<xs:import namespace="flash.text" schemaLocation="flash.text.xsd" />
+<xs:import namespace="ru.stablex" schemaLocation="ru.stablex.xsd" />
+<xs:import namespace="ru.stablex.ui.skins" schemaLocation="ru.stablex.ui.skins.xsd" />
+<xs:import namespace="ru.stablex.ui.layouts" schemaLocation="ru.stablex.ui.layouts.xsd" />
+<xs:complexType name="TextSchemaTypeValue">
+<xs:sequence><xs:element ref="Text"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="FloatingSchemaTypeValue">
+<xs:choice>
+<xs:element ref="Tip" />
+<xs:element ref="Floating" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TipSchemaTypeValue">
+<xs:sequence><xs:element ref="Tip"/></xs:sequence></xs:complexType>
+
+<xs:complexType name="WidgetSchemaTypeValue">
+<xs:choice>
+<xs:element ref="Text" />
+<xs:element ref="Box" />
+<xs:element ref="Floating" />
+<xs:element ref="Tip" />
+<xs:element ref="Widget" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BoxSchemaTypeValue">
+<xs:choice>
+<xs:element ref="Text" />
+<xs:element ref="Floating" />
+<xs:element ref="Tip" />
+<xs:element ref="Box" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TextSchemaType">
+<xs:complexContent>
+<xs:extension base="BoxSchemaType">
+<xs:sequence>
+<xs:element name="label" type="flash-text:TextFieldSchemaTypeValue"/>
+<xs:element name="format" type="flash-text:TextFormatSchemaTypeValue"/>
+<xs:element name="highlightFormat" type="flash-text:TextFormatSchemaTypeValue"/>
+<xs:element name="highlighted" type="xs:boolean"/>
+<xs:element name="text" type="xs:string"/>
+</xs:sequence>
+<xs:attribute name="label" type="xs:string"/>
+<xs:attribute name="format" type="xs:string"/>
+<xs:attribute name="highlightFormat" type="xs:string"/>
+<xs:attribute name="highlighted" type="xs:boolean"/>
+<xs:attribute name="text" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FloatingSchemaType">
+<xs:complexContent>
+<xs:extension base="BoxSchemaType">
+<xs:sequence>
+<xs:element name="shown" type="xs:boolean"/>
+<xs:element name="renderTo" type="xs:string"/>
+</xs:sequence>
+<xs:attribute name="shown" type="xs:boolean"/>
+<xs:attribute name="renderTo" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TipSchemaType">
+<xs:complexContent>
+<xs:extension base="FloatingSchemaType">
+<xs:sequence>
+<xs:element name="target" type="WidgetSchemaTypeValue"/>
+<xs:element name="label" type="TextSchemaTypeValue"/>
+<xs:element name="text" type="xs:string"/>
+</xs:sequence>
+<xs:attribute name="target" type="xs:string"/>
+<xs:attribute name="label" type="xs:string"/>
+<xs:attribute name="text" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WidgetSchemaType">
+<xs:complexContent>
+<xs:extension base="ru-stablex:TweenSpriteSchemaType">
+<xs:sequence>
+<xs:element name="defaults" type="xs:string"/>
+<xs:element name="initialized" type="xs:boolean"/>
+<xs:element name="created" type="xs:boolean"/>
+<xs:element name="destroyed" type="xs:boolean"/>
+<xs:element name="w" type="xs:double"/>
+<xs:element name="widthPt" type="xs:double"/>
+<xs:element name="h" type="xs:double"/>
+<xs:element name="heightPt" type="xs:double"/>
+<xs:element name="id" type="xs:string"/>
+<xs:element name="left" type="xs:double"/>
+<xs:element name="leftPt" type="xs:double"/>
+<xs:element name="right" type="xs:double"/>
+<xs:element name="rightPt" type="xs:double"/>
+<xs:element name="wparent" type="WidgetSchemaTypeValue"/>
+<xs:element name="top" type="xs:double"/>
+<xs:element name="topPt" type="xs:double"/>
+<xs:element name="bottom" type="xs:double"/>
+<xs:element name="bottomPt" type="xs:double"/>
+<xs:element name="skin" type="ru-stablex-ui-skins:SkinSchemaTypeValue"/>
+<xs:element name="_skinQueued" type="xs:boolean"/>
+<xs:element name="skinName" type="xs:string"/>
+<xs:element name="overflow" type="xs:boolean"/>
+<xs:element name="tip" type="TipSchemaTypeValue"/>
+<xs:element name="layout" type="ru-stablex-ui-layouts:LayoutSchemaTypeValue"/>
+<xs:element name="getChildAs" type="xs:string"/>
+<xs:element name="getChild" type="xs:string"/>
+<xs:element name="getParent" type="xs:string"/>
+<xs:element name="getParentAs" type="xs:string"/>
+<xs:element name="as" type="xs:string"/>
+</xs:sequence>
+<xs:attribute name="defaults" type="xs:string"/>
+<xs:attribute name="initialized" type="xs:boolean"/>
+<xs:attribute name="created" type="xs:boolean"/>
+<xs:attribute name="destroyed" type="xs:boolean"/>
+<xs:attribute name="w" type="xs:double"/>
+<xs:attribute name="widthPt" type="xs:double"/>
+<xs:attribute name="h" type="xs:double"/>
+<xs:attribute name="heightPt" type="xs:double"/>
+<xs:attribute name="id" type="xs:string"/>
+<xs:attribute name="left" type="xs:double"/>
+<xs:attribute name="leftPt" type="xs:double"/>
+<xs:attribute name="right" type="xs:double"/>
+<xs:attribute name="rightPt" type="xs:double"/>
+<xs:attribute name="wparent" type="xs:string"/>
+<xs:attribute name="top" type="xs:double"/>
+<xs:attribute name="topPt" type="xs:double"/>
+<xs:attribute name="bottom" type="xs:double"/>
+<xs:attribute name="bottomPt" type="xs:double"/>
+<xs:attribute name="skin" type="xs:string"/>
+<xs:attribute name="_skinQueued" type="xs:boolean"/>
+<xs:attribute name="skinName" type="xs:string"/>
+<xs:attribute name="overflow" type="xs:boolean"/>
+<xs:attribute name="tip" type="xs:string"/>
+<xs:attribute name="layout" type="xs:string"/>
+<xs:attribute name="getChildAs" type="xs:string"/>
+<xs:attribute name="getChild" type="xs:string"/>
+<xs:attribute name="getParent" type="xs:string"/>
+<xs:attribute name="getParentAs" type="xs:string"/>
+<xs:attribute name="as" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BoxSchemaType">
+<xs:complexContent>
+<xs:extension base="WidgetSchemaType">
+<xs:sequence>
+<xs:element name="vertical" type="xs:boolean"/>
+<xs:element name="padding" type="xs:double"/>
+<xs:element name="paddingLeft" type="xs:double"/>
+<xs:element name="paddingRight" type="xs:double"/>
+<xs:element name="paddingTop" type="xs:double"/>
+<xs:element name="paddingBottom" type="xs:double"/>
+<xs:element name="childPadding" type="xs:double"/>
+<xs:element name="align" type="xs:string"/>
+<xs:element name="autoSize" type="xs:boolean"/>
+<xs:element name="autoWidth" type="xs:boolean"/>
+<xs:element name="autoHeight" type="xs:boolean"/>
+<xs:element name="unifyChildren" type="xs:boolean"/>
+</xs:sequence>
+<xs:attribute name="vertical" type="xs:boolean"/>
+<xs:attribute name="padding" type="xs:double"/>
+<xs:attribute name="paddingLeft" type="xs:double"/>
+<xs:attribute name="paddingRight" type="xs:double"/>
+<xs:attribute name="paddingTop" type="xs:double"/>
+<xs:attribute name="paddingBottom" type="xs:double"/>
+<xs:attribute name="childPadding" type="xs:double"/>
+<xs:attribute name="align" type="xs:string"/>
+<xs:attribute name="autoSize" type="xs:boolean"/>
+<xs:attribute name="autoWidth" type="xs:boolean"/>
+<xs:attribute name="autoHeight" type="xs:boolean"/>
+<xs:attribute name="unifyChildren" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Text" type="TextSchemaType"/>
+<xs:element name="Floating" type="FloatingSchemaType"/>
+<xs:element name="Tip" type="TipSchemaType"/>
+<xs:element name="Widget" type="WidgetSchemaType"/>
+<xs:element name="Box" type="BoxSchemaType"/>
+</xs:schema>
