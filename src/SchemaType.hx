@@ -65,13 +65,24 @@ class SchemaType {
     public function processInterfaces(implementer: SchemaType = null) {
         if (null != xml) {
             if (null == implementer) implementer = this;
-            for(iface in xml.elementsNamed("implements")) {
-                var t = types.get(iface.get("path"));
-                if (null != t) {
-                    t.addImplementer(implementer);
-                }
+            for (t in getInterfaces()) {
+                t.addImplementer(implementer);
             }
         }
+    }
+
+    public function getInterfaces(): Array<SchemaType> {
+        return
+            if (null != xml && xml.elementsNamed("implements") != null) {
+                var ifaces = [];
+                for(iface in xml.elementsNamed("implements")) {
+                    ifaces.push(types.get(iface.get("path")));
+                }
+                Lambda.array(
+                    Lambda.filter(
+                        ifaces,
+                        function(t) { return t != null; }));
+            } else [];
     }
 
     public function getName(): String {
@@ -150,9 +161,10 @@ class SchemaType {
     public function toComplexTypeXmlString(namespace:SchemaNamespace): String {
         var buf: StringBuf = new StringBuf();
         buf.add('<xs:complexType name="${getComplexTypeName(getNameSpace())}">\n');
-        if (getBase() != null) {
-            buf.add('<xs:complexContent>\n');
-            buf.add('<xs:extension base="${getBase().getComplexTypeName(namespace)}">\n');
+
+        var interfaces = getInterfaces();
+
+        var processCurrent = function() {
             buf.add("<xs:all minOccurs='0'>\n");
             if (Generator.onlyExplicitChildren) {
                 for(ch in getExplicitChildren()) {
@@ -162,18 +174,22 @@ class SchemaType {
             fillPropertiesElements(buf, namespace);
             buf.add("</xs:all>\n");
             fillPropertiesAttributes(buf, namespace);
+        };
+
+        if (getBase() != null || interfaces.length > 0) {
+            buf.add('<xs:complexContent>\n');
+
+            if (getBase() != null) buf.add('<xs:extension base="${getBase().getComplexTypeName(namespace)}">\n');
+
+            for(i in interfaces) {
+                buf.add('<xs:extension base="${i.getComplexTypeName(namespace)}">\n');
+            }
+
+            processCurrent();
             buf.add('</xs:extension>\n');
             buf.add('</xs:complexContent>\n');
         } else {
-            buf.add("<xs:all>\n");
-            if (Generator.onlyExplicitChildren) {
-                for(ch in getExplicitChildren()) {
-                    buf.add('<xs:element minOccurs="0" ref="${ch.getElementName(getNameSpace())}" />\n');
-                }
-            }
-            fillPropertiesElements(buf, namespace);
-            buf.add("</xs:all>\n");
-            fillPropertiesAttributes(buf, namespace);
+            processCurrent();
         }
         buf.add('</xs:complexType>\n');
         return buf.toString();
@@ -214,7 +230,11 @@ class SchemaType {
             for (v in m.elements()) {
                 if (v.get("n") == ":children") {
                     var typeName = StringTools.replace(v.firstElement().firstChild().nodeValue,'"',"");
-                    result = result.concat(types.get(typeName).getImplementers());
+                    if (typeName == "any") {
+                        result = result.concat(Lambda.array(types));
+                    } else {
+                        result = result.concat(types.get(typeName).getImplementers());
+                    }
                 }
             }
         }
