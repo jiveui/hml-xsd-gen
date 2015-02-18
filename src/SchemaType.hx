@@ -123,6 +123,7 @@ class SchemaType {
                     var type =
                     if (child.firstElement().nodeName == "x")
                         switch(child.firstElement().get("path")) {
+                            case "UInt": "xs:int";
                             case "Int": "xs:int";
                             case "Float": "xs:double";
                             case "Bool": "xs:boolean";
@@ -181,12 +182,12 @@ class SchemaType {
 
             if (getBase() != null) buf.add('<xs:extension base="${getBase().getComplexTypeName(namespace)}">\n');
 
-            for(i in interfaces) {
-                buf.add('<xs:extension base="${i.getComplexTypeName(namespace)}">\n');
-            }
+//            for(i in interfaces) {
+//                buf.add('<xs:extension base="${i.getComplexTypeName(namespace)}">\n');
+//            }
 
             processCurrent();
-            buf.add('</xs:extension>\n');
+            if (getBase() != null) buf.add('</xs:extension>\n');
             buf.add('</xs:complexContent>\n');
         } else {
             processCurrent();
@@ -226,14 +227,16 @@ class SchemaType {
 
     public function getExplicitChildren(): Array<SchemaType> {
         var result:Array<SchemaType> = [];
-        for (m in xml.elementsNamed("meta")) {
-            for (v in m.elements()) {
-                if (v.get("n") == ":children") {
-                    var typeName = StringTools.replace(v.firstElement().firstChild().nodeValue,'"',"");
-                    if (typeName == "any") {
-                        result = result.concat(Lambda.array(types));
-                    } else {
-                        result = result.concat(types.get(typeName).getImplementers());
+        if (null != xml) {
+            for (m in xml.elementsNamed("meta")) {
+                for (v in m.elements()) {
+                    if (v.get("n") == ":children") {
+                        var typeName = StringTools.replace(v.firstElement().firstChild().nodeValue,'"',"");
+                        if (typeName == "any") {
+                            result = result.concat(Lambda.array(types));
+                        } else {
+                            result = result.concat(types.get(typeName).getImplementers());
+                        }
                     }
                 }
             }

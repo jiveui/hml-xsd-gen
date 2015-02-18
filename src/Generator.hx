@@ -39,6 +39,10 @@ class Generator {
         var xml:Xml = Xml.parse(File.getContent(config.xmlPath)).firstElement();
 
         new RootObjectType();
+        new StandardSchemaType("Int");
+        new StandardSchemaType("UInt");
+        new StandardSchemaType("Float");
+        new StandardSchemaType("Bool");
 
         for(c in xml.elementsNamed("class")) {
             var cl = new SchemaType(c);
