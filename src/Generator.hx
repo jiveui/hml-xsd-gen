@@ -1,5 +1,7 @@
 package ;
 
+import sys.FileSystem;
+import haxe.io.Path;
 import sys.io.File;
 import hxargs.Args;
 
@@ -36,6 +38,29 @@ class Generator {
     public function new() {}
 
     public function generate(config: Dynamic) {
+
+        //********************************************************
+        // Copied from Lime
+        // When the command-line tools are called from haxelib,
+        // the last argument is the project directory and the
+        // path to NME is the current working directory
+
+        var args = Sys.args ();
+        var lastArgument = new Path (args[args.length - 1]).toString ();
+
+        if (((StringTools.endsWith (lastArgument, "/") && lastArgument != "/") || StringTools.endsWith (lastArgument, "\\")) && !StringTools.endsWith (lastArgument, ":\\")) {
+
+            lastArgument = lastArgument.substr (0, lastArgument.length - 1);
+
+        }
+
+        if (FileSystem.exists (lastArgument) && FileSystem.isDirectory (lastArgument)) {
+            Sys.setCwd (lastArgument);
+            args.pop ();
+        }
+        //********************************************************
+
+
         var xml:Xml = Xml.parse(File.getContent(config.xmlPath)).firstElement();
 
         new RootObjectType();
